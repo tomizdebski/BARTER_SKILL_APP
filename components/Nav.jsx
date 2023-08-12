@@ -9,8 +9,14 @@ import { useRouter } from "next/navigation";
 const Nav = () => {
   const [isUserLoggedIn, setIsloggedIn] = useState(true);
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [searching, setSearching] = useState(false);
   const router = useRouter();
-  console.log(toggleDropdown);
+  console.log("toggle",toggleDropdown);
+
+  const searchingHandler = () => {
+    setSearching(prev => !prev);
+    console.log("searching", searching);
+  }
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
@@ -59,6 +65,7 @@ const Nav = () => {
                 >
                   Szukaj
                 </Link>
+                
                 {isUserLoggedIn && (
                   <button
                   type='button'
@@ -95,7 +102,7 @@ const Nav = () => {
 
 
       {/* desktop navigation */}
-      <div className="sm:flex hidden gap-3">
+      <div className="md:flex hidden gap-3">
         {isUserLoggedIn ? (
           <div className="flex gap-3 md:gap-5">
             <Link 
@@ -116,6 +123,7 @@ const Nav = () => {
                 width={37} 
                 height={37}
                 alt="Search"
+                onClick={searchingHandler}
                 
               />
             </Link>

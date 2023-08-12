@@ -20,11 +20,14 @@ const CreateLesson = () => {
 
     try {
       console.log('przed fetch',lesson);
-      const response = await fetch("http://localhost:4000/api/lesson", {
+       const response = await fetch("http://localhost:4000/api/lesson", {
         method: "POST",
         body: JSON.stringify(lesson),
-        mode: 'no-cors'
-        
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+
       });
 
       if (response.ok) {
