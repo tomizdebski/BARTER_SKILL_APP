@@ -14,10 +14,10 @@ const Form = ({ type, lesson, setLesson, submitting, handleSubmit }) => {
 
       <form
         onSubmit={handleSubmit}
-        className='mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism'
+        className='form_layout'
       >
         <label>
-          <span className='font-satoshi font-semibold text-base text-gray-700'>
+          <span className='form_label'>
             Dodaj tytuł
           </span>
           <input
@@ -31,7 +31,7 @@ const Form = ({ type, lesson, setLesson, submitting, handleSubmit }) => {
         </label>
 
         <label>
-          <span className='font-satoshi font-semibold text-base text-gray-700'>
+          <span className='form_label'>
             Twoja oferta
           </span>
 
@@ -45,7 +45,7 @@ const Form = ({ type, lesson, setLesson, submitting, handleSubmit }) => {
         </label>
 
         <label>
-          <span className='font-satoshi font-semibold text-base text-gray-700'>
+          <span className='form_label'>
             Twoje oczekiwania , co w zamian
           </span>
 

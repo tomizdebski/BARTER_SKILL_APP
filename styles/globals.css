@@ -113,8 +113,10 @@
   @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
 }
 
+
+
 .glassmorphism {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+  @apply rounded-xl border border-gray-200 bg-gray-500/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
 }
 
 .prompt_layout {
@@ -129,6 +131,14 @@
 /* Form Component */
 .form_textarea {
   @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_layout {
+  @apply mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism;
+}
+
+.form_label {
+  @apply font-satoshi font-semibold text-base text-gray-700;
 }
 
 .form_input {
@@ -167,4 +177,12 @@
 
 .flex-between {
   @apply flex justify-between items-center;
+}
+
+.submit-btn {
+  @apply border  px-5 py-1.5 rounded-full bg-green-500 text-white font-bold hover:bg-green-600;
+}
+
+input[type=file]::file-selector-button {
+  @apply border-none  px-5 py-1.5 rounded-full bg-blue-500 text-white font-bold hover:bg-blue-600;
 }

@@ -1,5 +1,6 @@
 'use client'
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
@@ -7,8 +8,10 @@ import * as Yup from "yup";
 
 const Login = () => {
 
+  const router = useRouter();
+
   const validationSchema = Yup.object().shape({
-    user_name: Yup.string().min(4, 'Za krótki!').max(50, 'Za długi!').required("Login jest wymagany"),
+    email: Yup.string().min(4, 'Za krótki!').max(50, 'Za długi!').required("Login jest wymagany"),
     password: Yup.string().min(8, 'Za krótki!').max(50, 'Za długi!').required("Hasło jest wymwagane"),
   });
 
@@ -17,25 +20,44 @@ const Login = () => {
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState
 
-  function onSubmit(e) {
-    //Backend API Call operation is handled here.
+  const onSubmit = async (data) => {
+
+    try {
+      console.log('przed fetch',data);
+       const response = await fetch("http://localhost:4000/api/login", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (response.ok) {
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <div className="my-8 mx-8">
-    <form onSubmit={handleSubmit(onSubmit)} id="reset">
+    <form onSubmit={handleSubmit(onSubmit)} id="reset" className='form_layout'>
       <div className="py-1">
-        <h1 className="text-center text-gray-600 font-bold text-2xl p-20">Zaloguj się na swoje konto BARTER</h1>
-        <label className="text-gray-600 font-medium" htmlFor="first_name">Login :</label>
+      <h1 className='head_text text-left pb-10 text-center'>
+        <span className='blue_gradient'>Zaloguj się w BARTER</span>
+      </h1>
+        <label className="text-gray-600 font-medium" htmlFor="first_name">Email :</label>
         <div className="py-2">
           <input
-            {...register("user_name")}
-            name="user_name"
+            {...register("email")}
+            name="email"
             type="text"
-            className="text-md px-2 text-gray-500 border w-[40rem] focus:outline-none focus:border-orange-500 rounded py-1"
-            id="user_name"
+            className="form_input"
+            id="email"
           />
-          <div className="text-red-500 ml-2 mt-2">{errors.user_name?.message}</div>
+          <div className="text-red-500 ml-2 mt-2">{errors.email?.message}</div>
         </div>
       </div>
      
@@ -49,7 +71,7 @@ const Login = () => {
             name="password"
             type="password"
             id="password"
-            className="text-md px-2 text-gray-500 border w-[40rem] focus:outline-none focus:border-orange-500 rounded py-1"
+            className="form_input"
           />
           <div className="text-red-500 ml-2 mt-2">
             {errors.password?.message}
@@ -58,7 +80,7 @@ const Login = () => {
       </div>
       <button
         type="submit"
-        className="border focus:border-1  focus:outline-none focus:border-green-600 px-5 py-1.5 rounded bg-green-500 text-white font-bold hover:bg-green-600"
+        className="border focus:border-1  focus:outline-none focus:border-green-600 px-5 py-1.5 rounded-full bg-green-500 text-white font-bold hover:bg-green-600"
       >
         Zaloguj
       </button>
@@ -66,5 +88,6 @@ const Login = () => {
   </div>
   )
 }
+
 
 export default Login
