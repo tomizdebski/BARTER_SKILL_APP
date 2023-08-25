@@ -1,53 +1,206 @@
 "use client";
-
-import { useState } from "react";
-import { useSession } from "next-auth/react";
+import { useFormik } from "formik";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/navigation";
+import * as Yup from "yup";
+import ReactPlayer from "react-player";
 
-import Form from "@components/Form";
+const MAX_FILE_SIZE = 102400; //100KB
+
+const validFileExtensions = {
+  image: ["jpg", "gif", "png", "jpeg", "svg", "webp"],
+};
+
+function isValidFileType(fileName, fileType) {
+  return (
+    fileName &&
+    validFileExtensions[fileType].indexOf(fileName.split(".").pop()) > -1
+  );
+}
+
+const validateSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Za krótki!")
+    .max(50, "Za długi!")
+    .required("Pole wymagane"),
+  content: Yup.string()
+    .min(2, "Za krótki!")
+    .max(50, "Za długi!")
+    .required("Pole wymagane"),
+
+  photo: Yup.mixed()
+    .required("Pole wymagane")
+    .test("is-valid-type", "Niedozwolony typ pliku", (value) =>
+      isValidFileType(value && value.name.toLowerCase(), "image")
+    )
+    .test(
+      "is-valid-size",
+      "Maksymalny rozmiar pliku to 100KB",
+      (value) => value && value.size <= MAX_FILE_SIZE
+    ),
+  // video: Yup.mixed()
+  //   .required("Pole wymagane")
+  //   .test("is-valid-type", "Niedozwolony typ pliku", (value) =>
+  //     isValidFileType(value && value.name.toLowerCase(), "image")
+  //   )
+  //   .test(
+  //     "is-valid-size",
+  //     "Maksymalny rozmiar pliku to 100KB",
+  //     (value) => value && value.size <= MAX_FILE_SIZE
+  //   ),
+});
 
 const CreateLesson = () => {
+
+  let imgRef = useRef();
+  let imgRefV = useRef();
   const router = useRouter();
-  //const { data: session } = useSession();
+  const [categories, setCategories] = useState([]);
+  const url = "http://localhost:4000/api/lesson";
 
-  const [submitting, setIsSubmitting] = useState(false);
-  const [lesson, setLesson] = useState({});
-  console.log(lesson)
+  useEffect(() => {
+    axios.post()
+  
+  }, [])
 
-  const createPrompt = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
 
-    try {
-      console.log('przed fetch',lesson);
-       const response = await fetch("http://localhost:4000/api/lesson", {
-        method: "POST",
-        body: JSON.stringify(lesson),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
+  
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      content: "",
+      photo: "",
+      video: "",
+    },
+    validationSchema: validateSchema,
+    onSubmit: async (values) => {
+      console.log(values);
+
+      try {
+        const formData = new FormData();
+        for (let value in values) {
+          formData.append(value, values[value]);
+          ///
         }
+        formData.append("categoryId", 1);
+        formData.append("instructorId", 1);
 
-      });
-
-      if (response.ok) {
-        router.push("/");
+        const response = await axios.post(url, formData);
+        console.log(response);
+        if (response.status === 200) {
+          router.push("/");
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    },
+  });
 
   return (
-    <Form
-      type='Dodaj'
-      lesson={lesson}
-      setLesson={setLesson}
-      submitting={submitting}
-      handleSubmit={createPrompt}
-    />
+    <div className="my-8 mx-8 ">
+      <form
+        onSubmit={formik.handleSubmit}
+        encType="multipart/form-data"
+        className="form_layout"
+      >
+        <h1 className="head_text text-left pb-10 text-center">
+          <span className="blue_gradient">Dodaj oferowaną lekcję</span>
+        </h1>
+        <p className="desc text-left max-w-md">
+          Opisz dokładnie czego możesz nauczyć <br /> a także czego chciałbyś
+          się nauczyć
+        </p>
+
+        <div>
+          <label className="form_label"> Nazwa lekcji</label>
+          <input
+            type="text"
+            name="name"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+            className="form_input"
+          />
+          {formik.errors.name ? (
+            <div style={{ color: "red" }}>{formik.errors.name}</div>
+          ) : null}
+        </div>
+        <div>
+          <label className="form_label"> Opis</label>
+          <textarea
+            type="text"
+            name="content"
+            onChange={formik.handleChange}
+            value={formik.values.content}
+            className="form_input"
+          />
+          {formik.errors.content ? (
+            <div style={{ color: "red" }}>{formik.errors.content}</div>
+          ) : null}
+        </div>
+
+        <div>
+          <label className="form_label"> Zdjęcie</label>
+          <input
+            type="file"
+            name="photo"
+            onChange={(e) => {
+              formik.setFieldValue("photo", e.currentTarget.files[0]);
+              const src = URL.createObjectURL(e.currentTarget.files[0]);
+              imgRef.current.src = src;
+            }}
+            className="form_input "
+          />
+          {formik.errors.photo ? (
+            <div style={{ color: "red" }}>{formik.errors.photo}</div>
+          ) : null}
+        </div>
+
+        <div>
+          <label className="form_label"> Wideo</label>
+          <input
+            type="file"
+            name="video"
+            onChange={(e) => {
+              formik.setFieldValue("video", e.currentTarget.files[0]);
+              const src = URL.createObjectURL(e.currentTarget.files[0]);
+              imgRefV.current.src = src;
+            }}
+            className="form_input "
+          />
+          {formik.errors.video ? (
+            <div style={{ color: "red" }}>{formik.errors.video}</div>
+          ) : null}
+        </div>
+        <div className="flex justify-around">
+          <img
+            className=" rounded p-1"
+            style={{ height: "200px", width: "200px" }}
+            ref={imgRef}
+          />
+
+          <img
+            className=" rounded p-1"
+            style={{ height: "200px", width: "200px" }}
+            ref={imgRefV}
+          />
+
+          {/* <ReactPlayer
+            url={[
+              "https://www.youtube.com/watch?v=oUFJJNQGwhk",
+              "https://www.youtube.com/watch?v=jNgP6d9HraI",
+            ]}
+          /> */}
+
+          {/* <ReactPlayer url={imgRefV} /> */}
+        </div>
+
+        <button type="submit" className="submit-btn">
+          Zapisz
+        </button>
+      </form>
+    </div>
   );
 };
 

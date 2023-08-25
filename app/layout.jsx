@@ -12,6 +12,9 @@ export const metadata = {
 const RootLayout = ({children}) => {
   return (
     <html lang="pl">
+      <head>
+        <link rel='icon' href='/favicon.ico'/>
+      </head>
       <body>
         <div className="main">
             <div className="gradient" />
