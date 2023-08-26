@@ -1,10 +1,10 @@
 "use client";
 import { useFormik } from "formik";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import * as Yup from "yup";
-import ReactPlayer from "react-player";
+import { UserContext } from "@components/UserContext";
 
 const MAX_FILE_SIZE = 102400; //100KB
 
@@ -26,7 +26,7 @@ const validateSchema = Yup.object().shape({
     .required("Pole wymagane"),
   content: Yup.string()
     .min(2, "Za krótki!")
-    .max(50, "Za długi!")
+    .max(300, "Za długi!")
     .required("Pole wymagane"),
 
   photo: Yup.mixed()
@@ -52,7 +52,8 @@ const validateSchema = Yup.object().shape({
 });
 
 const CreateLesson = () => {
-
+  const { userInfo, setUserInfo } = useContext(UserContext);
+  console.log(userInfo);
   let imgRef = useRef();
   let imgRefV = useRef();
   const router = useRouter();
@@ -60,17 +61,16 @@ const CreateLesson = () => {
   const url = "http://localhost:4000/api/lesson";
 
   useEffect(() => {
-    axios.post()
-  
-  }, [])
-
-
-  
+    axios
+      .get("http://localhost:4000/api/categories")
+      .then((response) => setCategories(response.data));
+  }, []);
 
   const formik = useFormik({
     initialValues: {
       name: "",
       content: "",
+      categoryId: "",
       photo: "",
       video: "",
     },
@@ -84,8 +84,11 @@ const CreateLesson = () => {
           formData.append(value, values[value]);
           ///
         }
-        formData.append("categoryId", 1);
-        formData.append("instructorId", 1);
+        if (userInfo.id) {
+          formData.append("instructorId", userInfo.id);
+        } else {
+          formData.append("instructorId", 1); // default if null
+        }
 
         const response = await axios.post(url, formData);
         console.log(response);
@@ -138,6 +141,23 @@ const CreateLesson = () => {
           {formik.errors.content ? (
             <div style={{ color: "red" }}>{formik.errors.content}</div>
           ) : null}
+        </div>
+
+        <div className="select-container">
+          <label className="form_label">Kategoria</label>
+
+          <select
+            className="form_input"
+            name="categoryId"
+            value={formik.values.categoryId}
+            onChange={formik.handleChange}
+          >
+            {categories.map((option) => (
+              <option key={option.id} value={option.id} className="form_input">
+                {option.name}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div>

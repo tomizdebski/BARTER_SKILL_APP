@@ -3,12 +3,16 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { useContext } from "react";
+import { UserContext } from "@components/UserContext";
 
 
 
 const Login = () => {
 
   const router = useRouter();
+  const {userInfo, setUserInfo} = useContext(UserContext);
+  console.log(userInfo);
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().min(4, 'Za krótki!').max(50, 'Za długi!').required("Login jest wymagany"),
@@ -32,7 +36,9 @@ const Login = () => {
           'Content-Type': 'application/json',
         }
       });
-
+      const res = await response.json();
+      setUserInfo(res);
+      
       if (response.ok) {
         router.push("/");
       }

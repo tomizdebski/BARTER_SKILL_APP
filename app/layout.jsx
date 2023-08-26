@@ -1,32 +1,32 @@
-import '@styles/globals.css';
-import Nav from '@components/Nav';
-import Footer from '@components/Footer';
-import Provider from '@components/Provider';
+import "@styles/globals.css";
+import Nav from "@components/Nav";
+import Footer from "@components/Footer";
+import Provider from "@components/Provider";
+import { UserContextProvider } from "@components/UserContext";
 
 export const metadata = {
-    title: "Learning Barter",
-    description: "Exchange skills",
-}
+  title: "Learning Barter",
+  description: "Exchange skills",
+};
 
-
-const RootLayout = ({children}) => {
+const RootLayout = ({ children }) => {
   return (
     <html lang="pl">
       <head>
-        <link rel='icon' href='/favicon.ico'/>
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <div className="main">
-            <div className="gradient" />
-        </div>
-        <main className="app">
+        <UserContextProvider>
           <Nav />
-            {children}
+          <div className="main">
+            <div className="gradient" />
+          </div>
+          <main className="app">{children}</main>
           <Footer />
-        </main>
+        </UserContextProvider>
       </body>
     </html>
-  )
-}
+  );
+};
 
 export default RootLayout;
