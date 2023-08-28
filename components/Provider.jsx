@@ -1,8 +1,12 @@
-import React from 'react'
+'use client'
+import {ThemeProvider } from "@material-tailwind/react";
 
-const Provider = () => {
+const Provider = ({children}) => {
   return (
-    <div>Provider</div>
+    <ThemeProvider>
+        {children}
+    </ThemeProvider>
+    
   )
 }
 
