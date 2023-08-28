@@ -1,8 +1,10 @@
 "use client";
 import Feed from "@components/Feed";
 import axios from "axios";
+import { Rating, ThemeProvider } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { formatISO9075 } from "date-fns";
+
 
 const Home = () => {
   const [lesson, setLesson] = useState([]);
@@ -21,7 +23,10 @@ const Home = () => {
   }, []);
 
   return (
+    <ThemeProvider>
+      
     <section className="w-full flex-center flex-col">
+      
       <div className="flex gap-2 p-3 flex-wrap">
         
         {categories.map(el => <button type="button" className="outline_btn">
@@ -30,17 +35,23 @@ const Home = () => {
 
       </div>
       <h1 className="head_text text-center">
+      
         <span className="blue_gradient">
           Odkrywaj i wymieniaj się umiejętniościami
         </span>
+        
         <br className="max-md:hidden" />
         <span className="green_gradient text-center">
           Czy umiesz coś czego nie umię ktoś inny?
+          <Rating/>
         </span>
       </h1>
       <p className="text-center">
         Barter to aplikacja służąca wymianie umiejętności między urzytkownikami.
       </p>
+      
+     
+     
       <div className="flex gap-3 flex-wrap mb-10 mt-10">
         {lesson.map((el) => (
           <div
@@ -121,7 +132,9 @@ const Home = () => {
         ))}
       </div>
     </section>
+    </ThemeProvider>
   );
+  
 };
 
 export default Home;

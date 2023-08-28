@@ -145,10 +145,10 @@
   @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
 }
 
-/* Nav Component */
+/* Nav Component
 .logo_text {
   @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
-}
+} */
 
 .dropdown {
   @apply absolute right-7 top-20 mt-3 w-2 p-5 rounded-lg bg-cyan-100 min-w-[210px] flex flex-col gap-2 justify-end items-end;
