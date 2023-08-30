@@ -6,8 +6,10 @@ import { useState, useEffect, useContext } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { UserContext } from "./UserContext";
-import { DrawerWithForm } from "./DraverForm";
 import Search from "./Search";
+
+
+
 
 const Nav = () => {
   //const [isUserLoggedIn, setIsloggedIn] = useState(true);
@@ -26,6 +28,7 @@ const Nav = () => {
 
   return (
     <nav className="flex-between w-full pt-3 glassmorphism">
+      
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/logo-barter.png"
@@ -87,7 +90,10 @@ const Nav = () => {
               >
                 Wyloguj
               </button>
+              
             )}
+
+            
 
             {!userInfo && (
               <button
@@ -105,12 +111,16 @@ const Nav = () => {
         )}
       </div>
 
+      
+
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5">
           
 
           <Search/>
+         
+          
 
           <Link href="/basket">
             <Image
@@ -162,6 +172,7 @@ const Nav = () => {
         </Link>
         
       </div>
+     
     </nav>
   );
 };

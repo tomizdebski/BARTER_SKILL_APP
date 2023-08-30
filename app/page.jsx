@@ -8,6 +8,8 @@ import { DialogWithImage } from "@components/DialogImage";
 
 
 
+
+
 const Home = () => {
   const [lesson, setLesson] = useState([]);
   const [baseLesson, setBaseLesson] = useState([]);
@@ -38,14 +40,15 @@ const Home = () => {
   };
 
   return (
-    <section className="w-full flex-center flex-col">
+    <section className="w-full flex-center flex-col z-0">
       
        
       
-      <div className="head_text text-center   p-5 glassmorphism">
+      <div className="head_text text-center p-5 ">
         <span className="blue_gradient">
           Odkrywaj i wymieniaj się umiejętniościami
         </span>
+        
 
         <br className="max-md:hidden" />
         <span className="green_gradient text-center">
@@ -71,9 +74,9 @@ const Home = () => {
       <div className="flex gap-10 flex-wrap mb-10 mt-10 justify-around">
         {lesson.map((el) => (
           <DialogWithImage key={el.id} lesson={el} />
-          
         ))}
       </div>
+      
     </section>
   );
 };
