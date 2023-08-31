@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { LessonBasketContext } from "@components/LessonBasketContext"
+import { UserContext } from "./UserContext";
 import {
   Button,
   Dialog,
@@ -20,6 +21,7 @@ export function DialogWithImage({ lesson }) {
   const handleIsFavorite = () => setIsFavorite((cur) => !cur);
 
   const {basket, setBasket} = useContext(LessonBasketContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
   return (
     <>
@@ -124,7 +126,8 @@ export function DialogWithImage({ lesson }) {
               </Typography>
             </div>
           </div>
-          <Button
+
+          {userInfo && (<Button
             size="sm"
             variant="outlined"
             color="blue-gray"
@@ -133,6 +136,7 @@ export function DialogWithImage({ lesson }) {
               setBasket(prev => [...prev, lesson])
             }}
           >
+            
             <svg
               className="w-6 h-6"
               viewBox="0 0 24 24"
@@ -173,7 +177,7 @@ export function DialogWithImage({ lesson }) {
               ></path>
             </svg>
             Dodaj do koszyka
-          </Button>
+          </Button>)}
           {/* <Button
             size="sm"
             variant="outlined"

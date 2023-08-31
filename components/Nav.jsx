@@ -9,8 +9,6 @@ import { UserContext } from "./UserContext";
 import Search from "./Search";
 
 
-
-
 const Nav = () => {
   //const [isUserLoggedIn, setIsloggedIn] = useState(true);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -28,7 +26,6 @@ const Nav = () => {
 
   return (
     <nav className="flex-between w-full pt-3 glassmorphism">
-      
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/logo-barter.png"
@@ -77,7 +74,6 @@ const Nav = () => {
             >
               Szukaj
             </Link>
-            
 
             {userInfo && (
               <button
@@ -90,10 +86,7 @@ const Nav = () => {
               >
                 Wyloguj
               </button>
-              
             )}
-
-            
 
             {!userInfo && (
               <button
@@ -111,16 +104,11 @@ const Nav = () => {
         )}
       </div>
 
-      
-
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5">
           
-
-          <Search/>
-         
-          
+          <Search />
 
           <Link href="/basket">
             <Image
@@ -130,6 +118,8 @@ const Nav = () => {
               alt="Basket"
             />
           </Link>
+
+          
 
           {userInfo && (
             <Link href="/create-lesson" className="outline_btn">
@@ -158,21 +148,19 @@ const Nav = () => {
         <Link href="/profile">
           {userInfo && (
             <>
-            <Image
-              src={"http://localhost:4000/"+ userInfo.avatar}
-              width={60}
-              height={60}
-              alt="Profile"
-              className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
-            />
-           
-            {/* <div className=" relative bottom-3 left-6 bg-green-600 w-4 h-4 rounded-full border border-sky-500"></div> */}
+              <Image
+                src={"http://localhost:4000/" + userInfo.avatar}
+                width={60}
+                height={60}
+                alt="Profile"
+                className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
+              />
+
+              {/* <div className=" relative bottom-3 left-6 bg-green-600 w-4 h-4 rounded-full border border-sky-500"></div> */}
             </>
           )}
         </Link>
-        
       </div>
-     
     </nav>
   );
 };

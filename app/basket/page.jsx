@@ -1,16 +1,20 @@
 "use client";
 import { useContext } from "react";
+import axios from "axios";
 import Image from "next/image";
 import { LessonBasketContext } from "@components/LessonBasketContext";
+import { UserContext } from "@components/UserContext";
 import { Tooltip } from "@material-tailwind/react";
 
 const Basket = () => {
   const { basket, setBasket } = useContext(LessonBasketContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
 
-  const handleSave = () => {
-
-  }
+  // const handleSave = () => {
+  //   axios
+  //   .patch(`http://localhost:4000/api/lesson/${}`)
+  // }
 
   return (
     <div className="h-screen bg-gray-100 pt-20 w-full">
@@ -18,7 +22,7 @@ const Basket = () => {
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
           {basket.map((el) => (
-            <div className="justify-between mb-6 rounded-full p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white">
+            <div key={el.id} className="justify-between mb-6 rounded-full p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white">
               <Tooltip
                 content={"Instruktor " + el.instructor.firstName + " " + el.instructor.lastName}
                 placement="top-end"
@@ -45,7 +49,12 @@ const Basket = () => {
                       placement="top-end"
                       className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
                     >
-                      <button className="outline_btn bg-deep-orange-900 mt-5" onClick={handleSave}>
+                      <button className="outline_btn bg-deep-orange-900 mt-5" onClick={()=>{
+                        console.log('patch--', el.id, userInfo.id)
+                        console.log(el)
+                        axios.patch(`http://localhost:4000/api/lesson/${el.id}`, {"studentId": userInfo.id})
+            
+                      }}>
                         Zapisz
                       </button>
                     </Tooltip>
