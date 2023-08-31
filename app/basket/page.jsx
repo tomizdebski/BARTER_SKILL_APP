@@ -8,7 +8,7 @@ const Basket = () => {
   const { basket, setBasket } = useContext(LessonBasketContext);
 
 
-  const handleFinalize = () => {
+  const handleSave = () => {
 
   }
 
@@ -45,7 +45,7 @@ const Basket = () => {
                       placement="top-end"
                       className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
                     >
-                      <button className="outline_btn bg-deep-orange-900 mt-5">
+                      <button className="outline_btn bg-deep-orange-900 mt-5" onClick={handleSave}>
                         Zapisz
                       </button>
                     </Tooltip>
