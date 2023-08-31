@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext, useState } from "react";
+import { LessonBasketContext } from "@components/LessonBasketContext"
 import {
   Button,
   Dialog,
@@ -12,11 +13,13 @@ import {
 } from "@material-tailwind/react";
 
 export function DialogWithImage({ lesson }) {
-  const [open, setOpen] = React.useState(false);
-  const [isFavorite, setIsFavorite] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleOpen = () => setOpen((cur) => !cur);
   const handleIsFavorite = () => setIsFavorite((cur) => !cur);
+
+  const {basket, setBasket} = useContext(LessonBasketContext);
 
   return (
     <>
@@ -126,6 +129,9 @@ export function DialogWithImage({ lesson }) {
             variant="outlined"
             color="blue-gray"
             className="flex items-center gap-3"
+            onClick={()=> {
+              setBasket(prev => [...prev, lesson])
+            }}
           >
             <svg
               className="w-6 h-6"

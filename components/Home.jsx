@@ -6,52 +6,34 @@ import { formatISO9075 } from "date-fns";
 import { RatingWithText } from "@components/Rating";
 import { DialogWithImage } from "@components/DialogImage";
 
-///socket
-// import socketIO from "socket.io-client"
-// const socket = socketIO.connect("http://localhost:4000")
-///socket
-
-
-
-const Home = () => {
-  const [lesson, setLesson] = useState([]);
+const Home = ({ category, lesson }) => {
+  const [lessons, setLessons] = useState([]);
   const [baseLesson, setBaseLesson] = useState([]);
   const [categories, setCategories] = useState([]);
 
   console.log(baseLesson);
-
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/categories")
-      .then((response) => setCategories(response.data));
-
-    fetch("http://localhost:4000/api/lessons")
-      .then((response) => response.json())
-      .then((data) => {
-        setLesson(data);
-        setBaseLesson(data);
-      });
+    setCategories(category);
+    setLessons(lesson);
+    setBaseLesson(lesson);
   }, []);
 
   const handleClickCategory = (e) => {
-    console.log(e.target.value);
-    console.log(lesson);
+    
 
-    const result = baseLesson.filter((el) => el.category.name === e.target.value);
+    const result = baseLesson.filter(
+      (el) => el.category.name === e.target.value
+    );
 
-    setLesson(result);
+    setLessons(result);
   };
 
   return (
-    <section className="w-full flex-center flex-col z-0 bg-gray-100">
-      
-       
-      
+    <section className="w-full flex-center flex-col z-0">
       <div className="head_text text-center p-5 ">
         <span className="blue_gradient">
           Odkrywaj i wymieniaj się umiejętniościami
         </span>
-        
 
         <br className="max-md:hidden" />
         <span className="green_gradient text-center">
@@ -59,7 +41,6 @@ const Home = () => {
         </span>
       </div>
       <div className="flex w-full  justify-between gap-3 p-3 flex-wrap ">
-       
         {categories.map((el) => (
           <button
             key={el.id}
@@ -67,7 +48,7 @@ const Home = () => {
             className="outline_btn bg-deep-orange-900 mt-5"
             value={el.name}
             onClick={handleClickCategory}
-            onDoubleClick={()=>setLesson(baseLesson)}
+            onDoubleClick={() => setLesson(baseLesson)}
           >
             {el.name}
           </button>
@@ -75,16 +56,12 @@ const Home = () => {
       </div>
 
       <div className="flex gap-10 flex-wrap mb-10 mt-10 justify-around">
-        {lesson.map((el) => (
+        {lessons.map((el) => (
           <DialogWithImage key={el.id} lesson={el} />
         ))}
       </div>
-      
     </section>
   );
 };
-
-
-
 
 export default Home;

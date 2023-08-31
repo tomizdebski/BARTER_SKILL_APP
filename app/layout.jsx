@@ -3,6 +3,7 @@ import Nav from "@components/Nav";
 import Footer from "@components/Footer";
 import Provider from "@components/Provider";
 import { UserContextProvider } from "@components/UserContext";
+import { LessonBasketContextProvider } from "@components/LessonBasketContext";
 
 
 export const metadata = {
@@ -17,6 +18,7 @@ const RootLayout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
+        <LessonBasketContextProvider>
         <UserContextProvider>
           <Provider>
             <Nav />
@@ -27,6 +29,8 @@ const RootLayout = ({ children }) => {
             <Footer />
           </Provider>
         </UserContextProvider>
+        </LessonBasketContextProvider>
+
       </body>
     </html>
   );
