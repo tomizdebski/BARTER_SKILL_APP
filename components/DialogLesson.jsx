@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { LessonBasketContext } from "@components/LessonBasketContext"
+import { UserContext } from "./UserContext";
 import {
   Button,
   Dialog,
@@ -12,7 +13,7 @@ import {
   Card,
 } from "@material-tailwind/react";
 
-export function DialogWithImage({ lesson }) {
+export function DialogLesson({ lesson }) {
   const [open, setOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -20,6 +21,7 @@ export function DialogWithImage({ lesson }) {
   const handleIsFavorite = () => setIsFavorite((cur) => !cur);
 
   const {basket, setBasket} = useContext(LessonBasketContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
   return (
     <>
@@ -124,15 +126,18 @@ export function DialogWithImage({ lesson }) {
               </Typography>
             </div>
           </div>
-          <Button
+
+          {userInfo && (<Button
             size="sm"
             variant="outlined"
             color="blue-gray"
             className="flex items-center gap-3"
             onClick={()=> {
-              setBasket(prev => [...prev, lesson])
+              setBasket(prev => [...prev, lesson]);
+              setOpen(false);
             }}
           >
+            
             <svg
               className="w-6 h-6"
               viewBox="0 0 24 24"
@@ -173,7 +178,7 @@ export function DialogWithImage({ lesson }) {
               ></path>
             </svg>
             Dodaj do koszyka
-          </Button>
+          </Button>)}
           {/* <Button
             size="sm"
             variant="outlined"
