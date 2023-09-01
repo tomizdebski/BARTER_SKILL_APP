@@ -8,7 +8,7 @@ const Search = () => {
           <input
             type="text"
             placeholder="Wpisz czego szukasz..."
-            className="rounded-full border-solid border-2 border-black pl-3 pr-3"
+            className="rounded-full border-solid border-2 border-blue-600 pl-3 pr-3"
             
           />
           <Image

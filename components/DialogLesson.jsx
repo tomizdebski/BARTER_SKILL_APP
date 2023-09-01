@@ -13,7 +13,7 @@ import {
   Card,
 } from "@material-tailwind/react";
 
-export function DialogWithImage({ lesson }) {
+export function DialogLesson({ lesson }) {
   const [open, setOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -133,7 +133,8 @@ export function DialogWithImage({ lesson }) {
             color="blue-gray"
             className="flex items-center gap-3"
             onClick={()=> {
-              setBasket(prev => [...prev, lesson])
+              setBasket(prev => [...prev, lesson]);
+              setOpen(false);
             }}
           >
             

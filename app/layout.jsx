@@ -4,6 +4,7 @@ import Footer from "@components/Footer";
 import Provider from "@components/Provider";
 import { UserContextProvider } from "@components/UserContext";
 import { LessonBasketContextProvider } from "@components/LessonBasketContext";
+import { LessonsContextProvider } from "@components/LessonsContext";
 
 export const metadata = {
   title: "Learning Barter",
@@ -17,18 +18,20 @@ const RootLayout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <LessonBasketContextProvider>
-          <UserContextProvider>
-            <Provider>
-              <Nav />
-              <div className="main">
-                <div className="gradient" />
-              </div>
-              <main className="app">{children}</main>
-              <Footer />
-            </Provider>
-          </UserContextProvider>
-        </LessonBasketContextProvider>
+        <LessonsContextProvider>
+          <LessonBasketContextProvider>
+            <UserContextProvider>
+              <Provider>
+                <Nav />
+                <div className="main">
+                  <div className="gradient" />
+                </div>
+                <main className="app">{children}</main>
+                <Footer />
+              </Provider>
+            </UserContextProvider>
+          </LessonBasketContextProvider>
+        </LessonsContextProvider>
       </body>
     </html>
   );

@@ -6,8 +6,10 @@ import { useState, useEffect, useContext } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { UserContext } from "./UserContext";
-import Search from "./Search";
+import { LessonBasketContext } from "@components/LessonBasketContext";
 
+import Search from "./Search";
+import { Tooltip } from "@material-tailwind/react";
 
 const Nav = () => {
   //const [isUserLoggedIn, setIsloggedIn] = useState(true);
@@ -15,13 +17,13 @@ const Nav = () => {
   const [searching, setSearching] = useState(false);
   const router = useRouter();
   const { userInfo, setUserInfo } = useContext(UserContext);
-  console.log("toggle", toggleDropdown);
-  console.log(userInfo);
+  const { basket, setBasket } = useContext(LessonBasketContext);
+  
   const URL_API = "http://localhost:4000/";
 
   const searchingHandler = () => {
     setSearching((prev) => !prev);
-    console.log("searching", searching);
+   
   };
 
   return (
@@ -48,7 +50,7 @@ const Nav = () => {
         />
 
         {toggleDropdown && (
-          <div className="dropdown">
+          <div className="dropdown z-50">
             <Link
               href="/profile"
               className="dropdown_link"
@@ -107,9 +109,17 @@ const Nav = () => {
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5">
-          
           <Search />
-
+          <Tooltip
+                content={
+                  (basket.length > 0)?(<ul>
+                    W koszyku są:
+                    {basket.map((el, index) => <li>{index+1 + ". " + el.name}</li>)}
+                  </ul>): <p>Koszyk jest pusty</p>
+                }
+                placement="top-end"
+                className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+              >
           <Link href="/basket">
             <Image
               src="/assets/icons/basket.svg"
@@ -118,8 +128,24 @@ const Nav = () => {
               alt="Basket"
             />
           </Link>
+          </Tooltip>
 
-          
+          <Tooltip
+                content={
+                  <p>Moje bartery</p>
+                }
+                placement="top-end"
+                className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+              >
+          <Link href="/my-barters">
+            <Image
+              src="/assets/icons/barter.svg"
+              width={30}
+              height={30}
+              alt="Basket"
+            />
+          </Link>
+          </Tooltip>
 
           {userInfo && (
             <Link href="/create-lesson" className="outline_btn">
@@ -139,7 +165,7 @@ const Nav = () => {
         ) : (
           <button
             type="button"
-            onClick={() => setUserInfo("")}
+            onClick={() => setUserInfo(false)}
             className="outline_btn"
           >
             Wyloguj
@@ -148,14 +174,24 @@ const Nav = () => {
         <Link href="/profile">
           {userInfo && (
             <>
-              <Image
-                src={"http://localhost:4000/" + userInfo.avatar}
-                width={60}
-                height={60}
-                alt="Profile"
-                className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
-              />
-
+              <Tooltip
+                content={
+                  "Zalogowany " +
+                  userInfo.firstName +
+                  " " +
+                  userInfo.lastName
+                }
+                placement="top-end"
+                className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+              >
+                <Image
+                  src={"http://localhost:4000/" + userInfo.avatar}
+                  width={60}
+                  height={60}
+                  alt="Profile"
+                  className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
+                />
+              </Tooltip>
               {/* <div className=" relative bottom-3 left-6 bg-green-600 w-4 h-4 rounded-full border border-sky-500"></div> */}
             </>
           )}

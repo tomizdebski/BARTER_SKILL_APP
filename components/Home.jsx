@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { formatISO9075 } from "date-fns";
 import { RatingWithText } from "@components/Rating";
-import { DialogWithImage } from "@components/DialogImage";
+import { DialogWithImage } from "@components/DialogLesson";
 
 const Home = ({ category, lesson }) => {
   const [lessons, setLessons] = useState([]);
