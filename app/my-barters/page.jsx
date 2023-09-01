@@ -122,7 +122,7 @@ const MyBarters = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
