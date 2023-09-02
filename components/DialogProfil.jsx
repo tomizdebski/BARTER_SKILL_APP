@@ -11,6 +11,7 @@ import {
   IconButton,
   Typography,
   MenuItem,
+  Tooltip
 } from "@material-tailwind/react";
 import { UserContext } from "./UserContext";
 import { useRouter } from "next/navigation";
@@ -35,14 +36,16 @@ export function DialogProfil() {
 
       <Dialog size="xs" open={open} handler={handleOpen}>
         <DialogHeader className="justify-between">
+          
           <Image
             src={"http://localhost:4000/" + userInfo.avatar}
             width={60}
             height={60}
             alt="Profile"
-            className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
+            className="w-10 h-10 rounded-full object-cover mr-4 shadow  p-1"
             onClick={handleOpen}
           />
+
           <Typography variant="h5" color="blue-gray">
             {userInfo.firstName + " " + userInfo.lastName}
           </Typography>
@@ -138,7 +141,7 @@ export function DialogProfil() {
           </div>
         </DialogBody>
         <DialogFooter className="justify-between gap-2 border-t border-blue-gray-50">
-          <button size="sm" className="outline_btn" oClick={()=> setUserInfo(false)}>
+          <button size="sm" className="outline_btn" onClick={()=> setUserInfo(false)}>
             Wyloguj
           </button>
         </DialogFooter>

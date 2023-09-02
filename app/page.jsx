@@ -5,7 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { LessonsContext } from "@components/LessonsContext";
 import { DialogLesson } from "@components/DialogLesson";
 import { Tooltip } from "@material-tailwind/react";
-import { CardInstructors } from "@components/Card";
+import { CardInstructors } from "@components/Instructors";
 
 ///socket
 // import socketIO from "socket.io-client"
