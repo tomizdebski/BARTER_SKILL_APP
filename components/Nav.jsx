@@ -109,9 +109,8 @@ const Nav = () => {
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5 ">
-          
-            <Search />
-         
+          <Search />
+
           <Tooltip
             content={
               basket.length > 0 ? (
