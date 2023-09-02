@@ -35,7 +35,7 @@ const MyBarters = () => {
   return (
     <div className=" bg-gray-100 pt-20 w-full">
       <h1 className="head_text text-center p-5 blue_gradient">
-        Wszystkie moje oferty barteru
+        Oferty barteru
       </h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
@@ -111,14 +111,27 @@ const MyBarters = () => {
                 </div>
               </div>
               <div className="mt-4 flex-col justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                
+                <button
+                  className="outline_btn w-full "
+                  onClick={() => {
+                    console.log("clik");
+                    axios.post(`http://localhost:4000/api/barter-lessons/`, {
+                      lessonId: +el.el.id,
+                      lessonExId: +el.item.id,
+                    });
+                  }}
+                >
                   
-                
-                <button className="outline_btn">Kasuj</button>
-                <button className="outline_btn">Finalizuj</button>
-
+                  <Image
+                    src="/assets/icons/barter_3.svg"
+                    width={30}
+                    height={30}
+                    alt="Basket"
+                    className="pr-1"
+                  />
+                  Finalizuj
+                </button>
               </div>
-              
             </div>
           ))}
         </div>
