@@ -34,7 +34,7 @@ export function DialogProfil() {
         onClick={handleOpen}
       />
 
-      <Dialog size="xs" open={open} handler={handleOpen}>
+      <Dialog size="xs" open={open} handler={handleOpen} >
         <DialogHeader className="justify-between">
           
           <Image
@@ -81,6 +81,7 @@ export function DialogProfil() {
             >
               Mój profil
             </Typography>
+
             <ul className="mt-1 -ml-2 flex flex-col gap-1">
               <MenuItem className="flex items-center gap-3">
                 <img
@@ -94,6 +95,7 @@ export function DialogProfil() {
                   </Typography>
                 </Link>
               </MenuItem>
+
               <MenuItem className="flex items-center gap-3">
                 <img
                   src="/assets/icons/basket.svg"
@@ -106,8 +108,24 @@ export function DialogProfil() {
                   </Typography>
                 </Link>
               </MenuItem>
+
+              <MenuItem className="flex items-center gap-3">
+                <img
+                  src="/assets/icons/skill.svg"
+                  alt="metamast"
+                  className="h-6 w-6 rounded-md"
+                />
+                <Link href="/user-skill" onClick={handleOpen}>
+                  <Typography color="blue-gray" variant="h6">
+                    Umiejętności
+                  </Typography>
+                </Link>
+              </MenuItem>
+              
             </ul>
+
           </div>
+
           <div>
             <Typography
               variant="small"

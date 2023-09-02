@@ -12,7 +12,7 @@ import {
   } from "@material-tailwind/react";
   import axios from "axios";
    
-  export function CardInstructors() {
+  export function CardInstructors({filter, all}) {
 
     const [instructors, setInstructors] = useState([]);
 
@@ -40,6 +40,8 @@ import {
               height={50}
               alt="Instructor"
               className="w-20 h-20 rounded-full object-cover mr-4 shadow border border-sky-500"
+              onClick={()=> filter(el.id)}
+              onDoubleClick={all}
             />
           </Link>
           ))}
