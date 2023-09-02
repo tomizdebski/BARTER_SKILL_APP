@@ -7,6 +7,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { UserContext } from "./UserContext";
 import { LessonBasketContext } from "@components/LessonBasketContext";
+import { DialogProfil } from "./DialogProfil";
 
 import Search from "./Search";
 import { Tooltip } from "@material-tailwind/react";
@@ -18,12 +19,11 @@ const Nav = () => {
   const router = useRouter();
   const { userInfo, setUserInfo } = useContext(UserContext);
   const { basket, setBasket } = useContext(LessonBasketContext);
-  
+
   const URL_API = "http://localhost:4000/";
 
   const searchingHandler = () => {
     setSearching((prev) => !prev);
-   
   };
 
   return (
@@ -108,49 +108,75 @@ const Nav = () => {
 
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
-        <div className="flex gap-3 md:gap-5">
-          <Search />
+        <div className="flex gap-3 md:gap-5 ">
+          
+            <Search />
+         
           <Tooltip
-                content={
-                  (basket.length > 0)?(<ul>
-                    W koszyku są:
-                    {basket.map((el, index) => <li>{index+1 + ". " + el.name}</li>)}
-                  </ul>): <p>Koszyk jest pusty</p>
-                }
-                placement="top-end"
-                className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
-              >
-          <Link href="/basket">
-            <Image
-              src="/assets/icons/basket.svg"
-              width={37}
-              height={37}
-              alt="Basket"
-            />
-          </Link>
+            content={
+              basket.length > 0 ? (
+                <ul>
+                  W koszyku są:
+                  {basket.map((el, index) => (
+                    <li>{index + 1 + ". " + el.name}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>Koszyk jest pusty</p>
+              )
+            }
+            placement="top-end"
+            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+          >
+            <Link
+              href="/basket"
+              className=" hover:bg-blue-100 hover:text-white rounded-lg"
+            >
+              <Image
+                src="/assets/icons/basket.svg"
+                width={37}
+                height={37}
+                alt="Basket"
+              />
+            </Link>
           </Tooltip>
 
           <Tooltip
-                content={
-                  <p>Moje bartery</p>
-                }
-                placement="top-end"
-                className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
-              >
-          <Link href="/my-barters">
-            <Image
-              src="/assets/icons/barter.svg"
-              width={30}
-              height={30}
-              alt="Basket"
-            />
-          </Link>
+            content={<p>Moje bartery</p>}
+            placement="top-end"
+            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+          >
+            <Link
+              href="/my-barters"
+              className=" hover:bg-blue-100 hover:text-white rounded-lg"
+            >
+              <Image
+                src="/assets/icons/barter_3.svg"
+                width={30}
+                height={30}
+                alt="Basket"
+              />
+            </Link>
           </Tooltip>
 
           {userInfo && (
-            <Link href="/create-lesson" className="outline_btn">
-              Dodaj Lekcję
-            </Link>
+            <Tooltip
+              content={<p>Dodaj lekcję</p>}
+              placement="top-end"
+              className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+            >
+              <Link
+                href="/create-lesson"
+                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+              >
+                <Image
+                  src="/assets/icons/add.svg"
+                  width={30}
+                  height={30}
+                  alt="Basket"
+                />
+              </Link>
+            </Tooltip>
           )}
         </div>
 
@@ -162,40 +188,15 @@ const Nav = () => {
           >
             Zaloguj
           </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setUserInfo(false)}
-            className="outline_btn"
-          >
-            Wyloguj
-          </button>
+        ) : null}
+
+        {userInfo && (
+          <>
+            <DialogProfil />
+
+            {/* <div className=" relative bottom-3 left-6 bg-green-600 w-4 h-4 rounded-full border border-sky-500"></div> */}
+          </>
         )}
-        <Link href="/profile">
-          {userInfo && (
-            <>
-              <Tooltip
-                content={
-                  "Zalogowany " +
-                  userInfo.firstName +
-                  " " +
-                  userInfo.lastName
-                }
-                placement="top-end"
-                className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
-              >
-                <Image
-                  src={"http://localhost:4000/" + userInfo.avatar}
-                  width={60}
-                  height={60}
-                  alt="Profile"
-                  className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
-                />
-              </Tooltip>
-              {/* <div className=" relative bottom-3 left-6 bg-green-600 w-4 h-4 rounded-full border border-sky-500"></div> */}
-            </>
-          )}
-        </Link>
       </div>
     </nav>
   );
