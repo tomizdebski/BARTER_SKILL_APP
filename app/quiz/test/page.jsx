@@ -1,18 +1,42 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { UserContext } from "@components/UserContext";
+import reactTest from "@db_json/db_question";
 
 
 
 const Quiz = () => {
 
   const { userInfo, setUserInfo } = useContext(UserContext);
+  const [currentQuestion, setCurrentQuestion] = useState(reactTest[0]);
+  const [counter, setCounter] = useState(1);
+  const [score, setScore]= useState(0);
+  const [answer, setAnswer] = useState('');
+
+  console.log(currentQuestion);
+  console.log(answer);
+  console.log(score)
+
   
 
   //const quizName = ["React", "JavaScript", "Python", "Gatsby", "Angular", "Django", "CSS", "Kotlin", "Laravel"]
 
-  const handleClick = (e) => {};
+  const handleClick = (e) => {
+    if(counter == 10){
+      console.log(`Uzyskałeś ${score} punktów`)
+    }
+    if(answer == currentQuestion.answer){
+      setCurrentQuestion(reactTest[counter]);
+      setCounter(counter + 1);
+      setScore(score + 1);
+      console.log("trafiłeś");
+    } else {
+      setCurrentQuestion(reactTest[counter]);
+      setCounter(counter + 1);
+      console.log("pudło")
+    }
+  };
 
   return (
     <div className="bg-gray-300 min-h-screen flex flex-col items-center justify-center">
@@ -25,8 +49,8 @@ const Quiz = () => {
         <div className=" bg-white rounded-lg mb-16 relative p-20">
           <div className=" flex justify-between items-center">
             <div>
-              <span className="font-medium text-blue-600">01</span>
-              <span className="font-medium text-green-600">/11</span>
+              <span className="font-medium text-blue-600">{counter}</span>
+              <span className="font-medium text-green-600">/10</span>
             </div>
             
             <div className="flex">
@@ -42,46 +66,67 @@ const Quiz = () => {
           </div>
 
           <div className="mt-8 mb-10">
-            <h2 className="font-medium mb-6 text-gray-900">
-              In React, what is the purpose of keys in lists?
+            <h2 className="font-bold mb-6 text-gray-900">
+              {currentQuestion.question}
             </h2>
 
             <div className="max-w-[100%]">
 
-              <div className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4 hover:bg-green-300">
+            {currentQuestion.code && (<div className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4 hover:bg-green-300">
+                <label className="p-4 flex cursor-pointer">
+                  {currentQuestion.code}
+                </label>
+              </div>)}
+
+              <div 
+              className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4 hover:bg-green-300"
+              onClick={()=> setAnswer(currentQuestion.q1)}
+              >
                 <label className="p-4 flex cursor-pointer">
                   <span className="sc-hBxehG jqVsbC">A.</span>
                   
-                  To provide a unique identifier for each item in the list
+                  {currentQuestion.q1}
                 </label>
               </div>
 
-              <div className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4  hover:bg-green-300">
+              <div 
+              className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4  hover:bg-green-300"
+              onClick={()=> setAnswer(currentQuestion.q2)}
+              >
                 <label className="p-4 flex cursor-pointer">
                   <span className="sc-hBxehG jqVsbC">B.</span>
                   
-                  To control the order of items in the lis
+                  {currentQuestion.q2}
                 </label>
               </div>
 
-              <div className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4  hover:bg-green-300 ">
+              <div 
+              className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4  hover:bg-green-300 "
+              onClick={()=> setAnswer(currentQuestion.q3)}
+              >
                 <label className="p-4 flex cursor-pointer">
                   <span className="sc-hBxehG jqVsbC">C.</span>
-                  To enable sorting and filtering of the list
+                  {currentQuestion.q3}
                 </label>
               </div>
-              <div className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4  hover:bg-green-300">
+              <div 
+              className="text-gray-800 font-normal bg-white cursor-pointer border border-gray-400 rounded-lg mb-4  hover:bg-green-300"
+              onClick={()=> setAnswer(currentQuestion.q4)}
+              >
                 <label className="p-4 flex cursor-pointer">
                   <span className="sc-hBxehG jqVsbC">D.</span>
-                  
-                  To handle user interactions within the list
+                  {currentQuestion.q4}
                 </label>
               </div>
             </div>
           </div>
+
           <div className="flex  gap-5 items-center justify-center">
-            <button className="w-48 text-blue-600 font-normal flex justify-center items-center border-2 border-blue-600 rounded-lg hover:bg-gray-300">Skip</button>
-            <button className="w-48 text-blue-600 font-normal flex justify-center items-center border-2 border-blue-600 rounded-lg hover:bg-gray-300">
+           
+            <button 
+            className="w-48 text-blue-600 font-normal flex justify-center items-center border-2 border-blue-600 rounded-lg hover:bg-gray-300"
+            onClick={handleClick}
+            >
               Next
               <span className="ml-5 flex">
               <img
