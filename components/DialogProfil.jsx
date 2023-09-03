@@ -37,18 +37,21 @@ export function DialogProfil() {
       <Dialog size="xs" open={open} handler={handleOpen} >
         <DialogHeader className="justify-between">
           
+          
           <Image
             src={"http://localhost:4000/" + userInfo.avatar}
             width={60}
             height={60}
             alt="Profile"
-            className="w-10 h-10 rounded-full object-cover mr-4 shadow  p-1"
+            className="w-10 h-10 rounded-full object-cover  shadow  p-1"
             onClick={handleOpen}
           />
 
-          <Typography variant="h5" color="blue-gray">
+          <Typography variant="h6" color="blue-gray">
             {userInfo.firstName + " " + userInfo.lastName}
           </Typography>
+          
+
           <IconButton
             color="blue-gray"
             size="sm"
@@ -115,9 +118,22 @@ export function DialogProfil() {
                   alt="metamast"
                   className="h-6 w-6 rounded-md"
                 />
-                <Link href="/user-skill" onClick={handleOpen}>
+                <Link href="/user-skills" onClick={handleOpen}>
                   <Typography color="blue-gray" variant="h6">
                     Umiejętności
+                  </Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem className="flex items-center gap-3">
+                <img
+                  src="/assets/icons/quiz.svg"
+                  alt="metamast"
+                  className="h-6 w-6 rounded-md"
+                />
+                <Link href="/quiz" onClick={handleOpen}>
+                  <Typography color="blue-gray" variant="h6">
+                    Przetestuj się - Quiz
                   </Typography>
                 </Link>
               </MenuItem>

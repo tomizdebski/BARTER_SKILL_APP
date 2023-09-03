@@ -166,7 +166,7 @@ const Nav = () => {
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
           >
             <Link
-              href="/my-barters"
+              href="/user-skills"
               className=" hover:bg-blue-100 hover:text-white rounded-lg"
             >
               <Image
