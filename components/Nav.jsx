@@ -109,9 +109,8 @@ const Nav = () => {
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5 ">
-          
-            <Search />
-         
+          <Search />
+
           <Tooltip
             content={
               basket.length > 0 ? (
@@ -141,23 +140,43 @@ const Nav = () => {
             </Link>
           </Tooltip>
 
-          <Tooltip
-            content={<p>Moje bartery</p>}
+          {userInfo && (
+            <Tooltip
+              content={<p>Moje bartery</p>}
+              placement="top-end"
+              className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+            >
+              <Link
+                href="/my-barters"
+                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+              >
+                <Image
+                  src="/assets/icons/barter_3.svg"
+                  width={30}
+                  height={30}
+                  alt="Basket"
+                />
+              </Link>
+            </Tooltip>
+          )}
+
+          {userInfo && (<Tooltip
+            content={<p>Moje umiejętności</p>}
             placement="top-end"
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
           >
             <Link
-              href="/my-barters"
+              href="/user-skills"
               className=" hover:bg-blue-100 hover:text-white rounded-lg"
             >
               <Image
-                src="/assets/icons/barter_3.svg"
+                src="/assets/icons/skill.svg"
                 width={30}
                 height={30}
                 alt="Basket"
               />
             </Link>
-          </Tooltip>
+          </Tooltip>)}
 
           {userInfo && (
             <Tooltip

@@ -11,6 +11,7 @@ import {
   IconButton,
   Typography,
   MenuItem,
+  Tooltip
 } from "@material-tailwind/react";
 import { UserContext } from "./UserContext";
 import { useRouter } from "next/navigation";
@@ -33,19 +34,24 @@ export function DialogProfil() {
         onClick={handleOpen}
       />
 
-      <Dialog size="xs" open={open} handler={handleOpen}>
+      <Dialog size="xs" open={open} handler={handleOpen} >
         <DialogHeader className="justify-between">
+          
+          
           <Image
             src={"http://localhost:4000/" + userInfo.avatar}
             width={60}
             height={60}
             alt="Profile"
-            className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
+            className="w-10 h-10 rounded-full object-cover  shadow  p-1"
             onClick={handleOpen}
           />
-          <Typography variant="h5" color="blue-gray">
+
+          <Typography variant="h6" color="blue-gray">
             {userInfo.firstName + " " + userInfo.lastName}
           </Typography>
+          
+
           <IconButton
             color="blue-gray"
             size="sm"
@@ -78,6 +84,7 @@ export function DialogProfil() {
             >
               Mój profil
             </Typography>
+
             <ul className="mt-1 -ml-2 flex flex-col gap-1">
               <MenuItem className="flex items-center gap-3">
                 <img
@@ -91,6 +98,7 @@ export function DialogProfil() {
                   </Typography>
                 </Link>
               </MenuItem>
+
               <MenuItem className="flex items-center gap-3">
                 <img
                   src="/assets/icons/basket.svg"
@@ -103,8 +111,37 @@ export function DialogProfil() {
                   </Typography>
                 </Link>
               </MenuItem>
+
+              <MenuItem className="flex items-center gap-3">
+                <img
+                  src="/assets/icons/skill.svg"
+                  alt="metamast"
+                  className="h-6 w-6 rounded-md"
+                />
+                <Link href="/user-skills" onClick={handleOpen}>
+                  <Typography color="blue-gray" variant="h6">
+                    Umiejętności
+                  </Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem className="flex items-center gap-3">
+                <img
+                  src="/assets/icons/quiz.svg"
+                  alt="metamast"
+                  className="h-6 w-6 rounded-md"
+                />
+                <Link href="/quiz" onClick={handleOpen}>
+                  <Typography color="blue-gray" variant="h6">
+                    Przetestuj się - Quiz
+                  </Typography>
+                </Link>
+              </MenuItem>
+              
             </ul>
+
           </div>
+
           <div>
             <Typography
               variant="small"
@@ -138,7 +175,7 @@ export function DialogProfil() {
           </div>
         </DialogBody>
         <DialogFooter className="justify-between gap-2 border-t border-blue-gray-50">
-          <button size="sm" className="outline_btn" oClick={()=> setUserInfo(false)}>
+          <button size="sm" className="outline_btn" onClick={()=> setUserInfo(false)}>
             Wyloguj
           </button>
         </DialogFooter>

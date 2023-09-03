@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { LessonsContext } from "@components/LessonsContext";
 import { DialogLesson } from "@components/DialogLesson";
 import { Tooltip } from "@material-tailwind/react";
+import { CardInstructors } from "@components/Instructors";
 
 ///socket
 // import socketIO from "socket.io-client"
@@ -43,6 +44,23 @@ const Home = () => {
     setLesson(result);
   };
 
+  const filterInstructor = (instructorId) => {
+    
+    const result = baseLesson.filter(
+      (el) => el.instructorId === instructorId
+    );
+
+    setLesson(result);
+  };
+
+  const all = () => {
+    setLesson(baseLesson);
+  };
+
+  
+
+
+
   return (
     <section className="w-full flex-center flex-col bg-gray-100">
       <div className="head_text text-center p-5 ">
@@ -54,6 +72,7 @@ const Home = () => {
         <span className="green_gradient text-center">
           Czy umiesz coś czego nie umię ktoś inny?
         </span>
+        <CardInstructors filter={filterInstructor} all={all}/>
       </div>
       <div className="flex w-full  justify-between gap-3 p-3 flex-wrap ">
         {categories.map((el) => (
