@@ -49,9 +49,9 @@ console.log(person("Jill", "Wilson"))`,
     question:
       "Using object literal enhancement, you can put values back into an object. When you log person to the console, what is the output?",
     code: `const name = 'Rachel';
-const age = 31;
-const person = { name, age };
-console.log(person);`,
+            const age = 31;
+            const person = { name, age };
+            console.log(person);`,
     q1: "''",
     q2: `{name: "Rachel", age: 31}`,
     q3: `{person: "Rachel", person: 31}}`,
