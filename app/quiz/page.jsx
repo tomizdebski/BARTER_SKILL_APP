@@ -45,7 +45,7 @@ const Quiz = () => {
               alt="Instructor"
               className="w-12 h-12 rounded-full  mr-4 "
             />
-            <span className="sc-kMjNwy text-lg font-semibold ml-2">{el}</span>
+            <span className=" text-lg font-semibold ml-2">{el}</span>
           </div>
         ))}
       </div>
