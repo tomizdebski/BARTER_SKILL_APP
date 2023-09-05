@@ -22,6 +22,13 @@ const Nav = () => {
 
   const URL_API = "http://localhost:4000/";
 
+  useEffect(() => {
+    
+    setUserInfo(JSON.parse(window.localStorage.getItem("user")));
+  
+  }, [])
+  
+
   const searchingHandler = () => {
     setSearching((prev) => !prev);
   };
@@ -40,72 +47,20 @@ const Nav = () => {
 
       {/* Menu */}
       <div className="sm:flex md:hidden lg:hidden xl:hidden">
-        <Image
+        {/* <Image
           src="/assets/icons/menu.svg"
           width={37}
           height={37}
           alt="menu"
           className=""
           onClick={() => setToggleDropdown(!toggleDropdown)}
-        />
+        /> */}
 
         {toggleDropdown && (
-          <div className="dropdown z-50">
-            <Link
-              href="/profile"
-              className="dropdown_link"
-              onClick={() => setToggleDropdown(false)}
-            >
-              Mój profil
-            </Link>
-            <Link
-              href="/create-lesson"
-              className="dropdown_link"
-              onClick={() => {
-                if (!userInfo) router.push(`/auth/login`);
-                setToggleDropdown(false);
-              }}
-            >
-              Dodaj lekcję
-            </Link>
-
-            <Link
-              href="/search"
-              className="dropdown_link"
-              onClick={() => setToggleDropdown(false)}
-            >
-              Szukaj
-            </Link>
-
-            {userInfo && (
-              <button
-                type="button"
-                onClick={() => {
-                  setUserInfo("");
-                  setToggleDropdown(false);
-                }}
-                className="mt-5 w-full black_btn"
-              >
-                Wyloguj
-              </button>
-            )}
-
-            {!userInfo && (
-              <button
-                type="button"
-                onClick={() => {
-                  setToggleDropdown(false);
-                  router.push(`/auth/login`);
-                }}
-                className="mt-5 w-full black_btn"
-              >
-                Zaloguj
-              </button>
-            )}
-          </div>
+          <DialogProfil />
         )}
       </div>
-
+            
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5 ">
@@ -160,23 +115,25 @@ const Nav = () => {
             </Tooltip>
           )}
 
-          {userInfo && (<Tooltip
-            content={<p>Moje umiejętności</p>}
-            placement="top-end"
-            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
-          >
-            <Link
-              href="/user-skills"
-              className=" hover:bg-blue-100 hover:text-white rounded-lg"
+          {userInfo && (
+            <Tooltip
+              content={<p>Moje umiejętności</p>}
+              placement="top-end"
+              className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
             >
-              <Image
-                src="/assets/icons/skill.svg"
-                width={30}
-                height={30}
-                alt="Basket"
-              />
-            </Link>
-          </Tooltip>)}
+              <Link
+                href="/user-skills"
+                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+              >
+                <Image
+                  src="/assets/icons/skill.svg"
+                  width={30}
+                  height={30}
+                  alt="Basket"
+                />
+              </Link>
+            </Tooltip>
+          )}
 
           {userInfo && (
             <Tooltip
@@ -200,13 +157,22 @@ const Nav = () => {
         </div>
 
         {!userInfo ? (
-          <button
-            type="button"
-            onClick={() => router.push(`/auth/login`)}
-            className="outline_btn"
-          >
-            Zaloguj
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={() => router.push(`/auth/login`)}
+              className="outline_btn"
+            >
+              Zaloguj
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push(`/auth/register`)}
+              className="outline_btn"
+            >
+              Zarejestruj
+            </button>
+          </>
         ) : null}
 
         {userInfo && (

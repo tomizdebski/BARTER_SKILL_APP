@@ -42,6 +42,8 @@ const Login = () => {
       console.log("res",res);
       if (res.status !== 500) {
         setUserInfo(res);
+        window.localStorage.setItem("user", JSON.stringify(res));
+        console.log("localStorage", JSON.parse(window.localStorage.getItem("user")))
       }
 
       if (response) {
@@ -53,12 +55,13 @@ const Login = () => {
   };
 
   return (
-    <div className="my-8 mx-8">
+    <div className="my-8 mx-8 shadow-2xl">
       <form
         onSubmit={handleSubmit(onSubmit)}
         id="reset"
-        className="form_layout"
+        className="form_layout shadow-2xl border-2 border-green-600 rounded"
       >
+        
         <div className="py-1">
           <h1 className="head_text text-left pb-10 text-center">
             <span className="blue_gradient">Zaloguj się w BARTER</span>
@@ -99,7 +102,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="border focus:border-1  focus:outline-none focus:border-green-600 px-5 py-1.5 rounded-full bg-green-500 text-white font-bold hover:bg-green-600"
+          className="submit-btn"
         >
           Zaloguj
         </button>

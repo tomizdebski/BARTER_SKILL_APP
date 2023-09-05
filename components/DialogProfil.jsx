@@ -175,7 +175,10 @@ export function DialogProfil() {
           </div>
         </DialogBody>
         <DialogFooter className="justify-between gap-2 border-t border-blue-gray-50">
-          <button size="sm" className="outline_btn" onClick={()=> setUserInfo(false)}>
+          <button size="sm" className="outline_btn" onClick={()=> {
+            setUserInfo(false);
+            window.localStorage.clear();
+            }}>
             Wyloguj
           </button>
         </DialogFooter>

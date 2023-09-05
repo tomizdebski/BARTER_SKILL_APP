@@ -82,7 +82,7 @@
 }
 
 .outline_btn {
-  @apply rounded-full border-2 border-green-600 bg-transparent py-1.5 px-5 text-blue-600 transition-all hover:bg-blue-600 hover:text-white text-center text-sm font-inter font-bold flex items-center justify-center;
+  @apply rounded border-2 border-green-600 bg-transparent py-1.5 px-5 text-blue-600 transition-all hover:bg-blue-600 hover:text-white text-center text-sm font-inter font-bold flex items-center justify-center;
 }
 
 .head_text {
@@ -180,9 +180,9 @@
 }
 
 .submit-btn {
-  @apply border  px-5 py-1.5 rounded-full bg-green-500 text-white font-bold hover:bg-green-600;
+  @apply border  px-5 py-1.5 rounded bg-green-500 text-white font-bold hover:bg-green-600;
 }
 
 input[type=file]::file-selector-button {
-  @apply border-none  px-5 py-1.5 rounded-full bg-blue-500 text-white font-bold hover:bg-blue-600;
+  @apply border-none  px-5 py-1.5 rounded bg-blue-500 text-white font-bold hover:bg-blue-600;
 }

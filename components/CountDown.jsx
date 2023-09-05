@@ -6,7 +6,7 @@ import { useCountdown } from "@hooks/useCoundown";
 
 
 export const Countdown = ({ onGoClick }) => {
-  const countdown = useCountdown(240);
+  const countdown = useCountdown(10);
 
   return (
     <motion.div
@@ -31,10 +31,10 @@ export const Countdown = ({ onGoClick }) => {
         
         <div className="flex justify-center items-center mt-[38px] rounded-full border-8 border-white w-[100px] h-[100px] bg-transparent">
           {countdown !== 0 ? (
-            <span className="text-[100px]">{countdown}</span>
+            <span className="text-[200px]">{countdown}</span>
           ) : (
-            <span className="text-[40px] cursor-pointer" onClick={onGoClick}>
-              koniec
+            <span className="text-[20px] cursor-pointer" onClick={onGoClick}>
+              Start
             </span>
           )}
         </div>

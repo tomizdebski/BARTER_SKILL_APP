@@ -1,5 +1,6 @@
 "use client";
 
+import { Countdown } from "@components/CountDown";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -25,6 +26,7 @@ const Quiz = () => {
 
   return (
     <div className="bg-white min-h-screen flex-col items-center py-5 px-10 justify-center shadow-xl">
+     
       <h2 className="text-3xl font-bold mb-5 text-center blue_gradient head_text">
         Witaj w quiz
       </h2>

@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { useRef } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import * as Yup from "yup";
 
 const MAX_FILE_SIZE = 102400; //100KB
@@ -80,12 +81,14 @@ const Register = () => {
 
   return (
     <div className="my-8 mx-8">
+      
       <form
         onSubmit={formik.handleSubmit}
         encType="multipart/form-data"
-        className="form_layout"
+        className="form_layout shadow-2xl border-2 border-green-600 rounded"
       >
-        <h1 className="head_text text-left pb-10 text-center">
+        
+        <h1 className="head_text text-left pb-2 text-center">
           <span className="blue_gradient">Zarejestruj się w BARTER</span>
           <img
             className=" rounded-full"

@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { LessonBasketContext } from "@components/LessonBasketContext";
@@ -11,7 +11,15 @@ const MyBarters = () => {
   const { basket, setBasket } = useContext(LessonBasketContext);
   const { userInfo, setUserInfo } = useContext(UserContext);
   const { lessons, setLessons } = useContext(LessonsContext);
-  console.log("barter", lessons);
+  const [barterLessonActive , setBarterLessonActive] = useState([]);
+  console.log("barter-active", barterLessonActive);
+
+  useEffect(() => {
+    axios
+    .get("http://localhost:4000/api/barter-lessons")
+    .then((response) => setBarterLessonActive(response.data));
+  }, [])
+  
 
   let arrayBarters = [];
   // all barters
@@ -38,12 +46,12 @@ const MyBarters = () => {
         Oferty barteru
       </h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
-        <div className="rounded-lg md:w-2/3">
+        <div className="rounded md:w-2/3">
           {filterUser.map((el) => (
-            <div className="m-10 bg-blue-gray-200 pl-10 pt-10 pb-5 pr-20 rounded-3xl glassmorphism">
+            <div className="m-10 bg-blue-gray-200 pl-10 pt-10 pb-5 pr-20 rounded glassmorphism shadow-2xl border-2 border-green-600 rounded">
               <div
                 key={el.el.id}
-                className="justify-between mb-6 rounded-3xl p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
+                className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
               >
                 <Tooltip
                   content={
@@ -60,7 +68,7 @@ const MyBarters = () => {
                     width={80}
                     height={80}
                     alt="Avatar"
-                    className="h-12 w-12 rounded-full object-cover mr-4 shadow border border-sky-500"
+                    className="h-12 w-12 rounded object-cover mr-4 shadow border border-sky-500"
                   />
                 </Tooltip>
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
@@ -78,7 +86,7 @@ const MyBarters = () => {
 
               <div
                 key={el.item.id + el.item.name}
-                className="justify-between mb-6 rounded-3xl p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
+                className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
               >
                 <Tooltip
                   content={
@@ -95,7 +103,7 @@ const MyBarters = () => {
                     width={80}
                     height={80}
                     alt="Avatar"
-                    className="h-12 w-12 rounded-full object-cover mr-4 shadow border border-sky-500"
+                    className="h-12 w-12 rounded object-cover mr-4 shadow border border-sky-500"
                   />
                 </Tooltip>
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
@@ -112,7 +120,7 @@ const MyBarters = () => {
               </div>
               <div className="mt-4 flex-col justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <button
-                  className="outline_btn w-full "
+                  className="outline_btn w-full"
                   onClick={() => {
                     console.log("clik");
                     axios.post(`http://localhost:4000/api/barter-lessons/`, {
@@ -135,7 +143,12 @@ const MyBarters = () => {
             </div>
           ))}
         </div>
+        
       </div>
+      <h1 className="head_text text-center p-5 blue_gradient">
+        Bartery w trakcie realizacji
+      </h1>
+
     </div>
   );
 };
