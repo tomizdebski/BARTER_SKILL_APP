@@ -103,6 +103,7 @@ console.log(animal);`,
     q4: `Babel`,
     answer: `Babel`
   },
+
 ];
 // Q11. Why might you use useReducer over useState in a React component?
 // when you want to replace Redux

@@ -25,6 +25,7 @@ const Nav = () => {
   useEffect(() => {
     
     setUserInfo(JSON.parse(window.localStorage.getItem("user")));
+    
   
   }, [])
   
@@ -44,9 +45,13 @@ const Nav = () => {
           className="object-contain"
         />
       </Link>
+      
 
       {/* Menu */}
       <div className="sm:flex md:hidden lg:hidden xl:hidden">
+      <Search />
+      <DialogProfil />
+      
         {/* <Image
           src="/assets/icons/menu.svg"
           width={37}

@@ -8,13 +8,13 @@ const Search = () => {
           <input
             type="text"
             placeholder="Wpisz czego szukasz..."
-            className="rounded-full border-solid border-2  border-green-600 pl-3 pr-3 poi"
+            className="search_input"
             
           />
           <Image
           src="/assets/icons/search.svg"
-          width={37}
-          height={37}
+          width={44}
+          height={44}
           alt="menu"
           className=" hover:bg-blue-100 hover:text-white rounded-lg"
           onClick={null}

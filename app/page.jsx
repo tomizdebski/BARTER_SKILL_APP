@@ -31,6 +31,7 @@ const Home = () => {
         setLesson(data);
         setLessons(data);
         setBaseLesson(data);
+       
       });
   }, []);
 
@@ -57,6 +58,8 @@ const Home = () => {
     setLesson(baseLesson);
   };
 
+
+
   
 
 
@@ -81,13 +84,13 @@ const Home = () => {
              "Kategoria - doubleclick cofa filtrowanie"
             }
             placement="top-end"
-            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10 "
             key={el.id}
           >
             <button
               key={el.id + el.name}
               type="button"
-              className="outline_btn bg-deep-orange-900 mt-5"
+              className=" gray_btn mt-5"
               value={el.name}
               onClick={handleClickCategory}
               onDoubleClick={() => setLesson(baseLesson)}

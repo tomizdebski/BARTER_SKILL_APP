@@ -26,7 +26,7 @@ export function DialogProfil() {
   return (
     <>
       <Image
-        src={"http://localhost:4000/" + userInfo.avatar}
+        src={"http://localhost:4000/" + userInfo?.avatar}
         width={60}
         height={60}
         alt="Profile"
@@ -39,7 +39,7 @@ export function DialogProfil() {
           
           
           <Image
-            src={"http://localhost:4000/" + userInfo.avatar}
+            src={"http://localhost:4000/" + userInfo?.avatar}
             width={60}
             height={60}
             alt="Profile"
@@ -48,7 +48,7 @@ export function DialogProfil() {
           />
 
           <Typography variant="h6" color="blue-gray">
-            {userInfo.firstName + " " + userInfo.lastName}
+            {userInfo?.firstName + " " + userInfo?.lastName}
           </Typography>
           
 
@@ -177,7 +177,7 @@ export function DialogProfil() {
         <DialogFooter className="justify-between gap-2 border-t border-blue-gray-50">
           <button size="sm" className="outline_btn" onClick={()=> {
             setUserInfo(false);
-            window.localStorage.clear();
+            window.localStorage.clear()
             }}>
             Wyloguj
           </button>

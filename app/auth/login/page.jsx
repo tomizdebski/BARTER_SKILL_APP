@@ -17,7 +17,7 @@ const Login = () => {
       .max(50, "Za długi!")
       .required("Login jest wymagany"),
     password: Yup.string()
-      .min(8, "Za krótki!")
+      .min(4, "Za krótki!")
       .max(50, "Za długi!")
       .required("Hasło jest wymwagane"),
   });

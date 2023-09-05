@@ -5,7 +5,8 @@ import Image from "next/image";
 import { LessonBasketContext } from "@components/LessonBasketContext";
 import { UserContext } from "@components/UserContext";
 import { LessonsContext } from "@components/LessonsContext";
-import { Tooltip } from "@material-tailwind/react";
+import { Rating, Tooltip } from "@material-tailwind/react";
+import shortid from 'shortid';
 
 const MyBarters = () => {
   const { basket, setBasket } = useContext(LessonBasketContext);
@@ -18,6 +19,12 @@ const MyBarters = () => {
     axios
     .get("http://localhost:4000/api/barter-lessons")
     .then((response) => setBarterLessonActive(response.data));
+    fetch("http://localhost:4000/api/lessons")
+      .then((response) => response.json())
+      .then((data) => {
+        setLessons(data);
+      });
+    
   }, [])
   
 
@@ -43,14 +50,14 @@ const MyBarters = () => {
   return (
     <div className=" bg-gray-100 pt-20 w-full">
       <h1 className="head_text text-center p-5 blue_gradient">
-        Oferty barteru
+        Propozycje barteru
       </h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
-        <div className="rounded md:w-2/3">
-          {filterUser.map((el) => (
-            <div className="m-10 bg-blue-gray-200 pl-10 pt-10 pb-5 pr-20 rounded glassmorphism shadow-2xl border-2 border-green-600 rounded">
+        <div className="rounded md:w-full">
+          {filterUser.map((el, index) => (
+            <div key={shortid.generate()} className="m-10 bg-blue-gray-200 pl-10 pt-10 pb-5 pr-20 rounded glassmorphism shadow-2xl border-2 border-green-600 rounded">
               <div
-                key={el.el.id}
+                
                 className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
               >
                 <Tooltip
@@ -62,7 +69,7 @@ const MyBarters = () => {
                   }
                   placement="top-end"
                   className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
-                >
+                > 
                   <Image
                     src={"http://localhost:4000/" + el.el.instructor.avatar}
                     width={80}
@@ -85,7 +92,7 @@ const MyBarters = () => {
               </div>
 
               <div
-                key={el.item.id + el.item.name}
+                
                 className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
               >
                 <Tooltip
@@ -148,7 +155,68 @@ const MyBarters = () => {
       <h1 className="head_text text-center p-5 blue_gradient">
         Bartery w trakcie realizacji
       </h1>
+      {barterLessonActive.map(el => (
+      <div key={shortid.generate()} className="m-10 bg-blue-gray-200 pl-10 pt-10 pb-5 pr-20 rounded glassmorphism  border-2 border-green-600 ">
+              
+                <div className="flex-col sm:ml-4 sm:flex sm:w-full sm:justify-between">
+                  <div className="mt-5 sm:mt-0">
+                    <h2 className="text-lg font-bold text-gray-900">
+                      {el.lesson.name}
+                    </h2>
+                    <p className="mt-1 text-xs text-gray-700">
+                      {el.lesson.content}
+                    </p>
+                    
+                  </div>
+                </div>
+              
 
+              
+                
+                <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+                  <div className="mt-5 sm:mt-0">
+                    <h2 className="text-lg font-bold text-gray-900">
+                      {el.lessonEx.name}
+                    </h2>
+                    <p className="mt-1 text-xs text-gray-700">
+                      {el.lessonEx.content}
+                    </p>
+                    
+                  </div>
+                </div>
+             
+
+              <div className="mt-4 flex gap-4 justify-between ">
+                
+                <button
+                  className="outline_btn w-full orange_gradient"
+                  onClick={() => {
+                    axios.delete(`http://localhost:4000/api/barter-lessons/${el.id}`)
+                  }}
+                >
+                  
+                  <Image
+                    src="/assets/icons/delete.svg"
+                    width={30}
+                    height={30}
+                    alt="Basket"
+                    className="pr-1 transform hover:rotate-45"
+                  />
+                  Kasuj
+                </button>
+
+                <button
+                  className="outline_btn w-full blue_gradient"
+                  onClick={() => {
+                    null
+                  }}
+                >
+                  <Rating value={5} onChange={(value) => console.log("ocena", value)} />
+                </button>
+
+              </div>
+            </div>
+))}
     </div>
   );
 };

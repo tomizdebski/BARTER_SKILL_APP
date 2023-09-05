@@ -4,8 +4,7 @@ import axios from "axios";
 import { UserContext } from "@components/UserContext";
 import reactTest from "@db_json/db_question";
 import { useCountdown } from "@hooks/useCoundown";
-import { playQuizEnd, playQuizStart } from "@utils/playSound";
-import { Rating } from "@material-tailwind/react";
+import { useRouter } from "next/navigation";
 
 const Quiz = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -13,33 +12,37 @@ const Quiz = () => {
   const [counter, setCounter] = useState(1);
   const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState("");
+  const router = useRouter();
   const countdown = useCountdown(240);
 
-  console.log(currentQuestion);
-  console.log(answer);
-  console.log(score);
-  console.log(counter);
+ 
 
   //const quizName = ["React", "JavaScript", "Python", "Gatsby", "Angular", "Django", "CSS", "Kotlin", "Laravel"]
 
   const handleClick = (e) => {
     if (counter == 10) {
-      console.log(`Uzyskałeś ${score} punktów`);
+      return
     }
     if (answer == currentQuestion.answer) {
       setCurrentQuestion(reactTest[counter]);
       setCounter(counter + 1);
       setScore(score + 1);
-      console.log("trafiłeś");
+      
     } else {
       setCurrentQuestion(reactTest[counter]);
       setCounter(counter + 1);
-      console.log("pudło");
+    
     }
   };
 
   const handleSaveClick = () => {
-    null
+    axios
+    .post("http://localhost:4000/api/skills/", {
+      name: "React",
+      level: +score,
+      userId : +userInfo.id
+    })
+    .then((response) => router.push("/user-skills"));
   };
 
 
@@ -148,9 +151,9 @@ const Quiz = () => {
           ) : (
             <div >
               <h1 onClick="text-3xl font-bold mb-5 text-center blue_gradient head_text">
-                To koniec zdobyłeś {" " + score} punktów
+                To koniec zdobyłeś {" " + score} {(score > 4 ) ? " punktów" : " punkty"}
               </h1>
-              <Rating value={score}/>
+              
               <button
                 className="w-48 text-blue-600 font-normal flex justify-center items-center border-2 border-blue-600 rounded-lg hover:bg-gray-300"
                 onClick={handleSaveClick}
