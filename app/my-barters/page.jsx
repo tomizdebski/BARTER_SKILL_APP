@@ -48,14 +48,14 @@ const MyBarters = () => {
   );
 
   return (
-    <div className=" bg-gray-100 pt-20 w-full">
-      <h1 className="head_text text-center p-5 blue_gradient">
+    <div className=" bg-gray-100 pt-20 w-[100%] h-[100%]">
+      <h1 className="head_text text-center  blue_gradient">
         Propozycje barteru
       </h1>
-      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+      <div className="mx-auto max-w-5xl justify-center  md:flex md:space-x-6 xl:px-0">
         <div className="rounded md:w-full">
           {filterUser.map((el, index) => (
-            <div key={shortid.generate()} className="m-10 bg-blue-gray-200 pl-10 pt-10 pb-5 pr-20 rounded glassmorphism shadow-2xl border-2 border-green-600 rounded">
+            <div key={shortid.generate()} className="m-10 bg-blue-gray-200  pt-10 pb-5 pr-20 rounded glassmorphism shadow-2xl border-2 border-green-600 rounded">
               <div
                 
                 className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"

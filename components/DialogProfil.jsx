@@ -131,7 +131,7 @@ export function DialogProfil() {
                   alt="metamast"
                   className="h-6 w-6 rounded-md"
                 />
-                <Link href="/quiz" onClick={handleOpen}>
+                <Link href="/quiz/quiz" onClick={handleOpen}>
                   <Typography color="blue-gray" variant="h6">
                     Przetestuj się - Quiz
                   </Typography>

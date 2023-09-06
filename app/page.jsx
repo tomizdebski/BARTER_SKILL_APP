@@ -1,5 +1,5 @@
 "use client";
-import Feed from "@components/Feed";
+
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { LessonsContext } from "@components/LessonsContext";
@@ -75,9 +75,9 @@ const Home = () => {
         <span className="green_gradient text-center">
           Czy umiesz coś czego nie umię ktoś inny?
         </span>
-        <CardInstructors filter={filterInstructor} all={all}/>
+        
       </div>
-      <div className="flex w-full  justify-between gap-3 p-3 flex-wrap ">
+      <div className="flex w-full  justify-between  p-3 flex-wrap ">
         {categories.map((el) => (
           <Tooltip
             content={
@@ -90,7 +90,7 @@ const Home = () => {
             <button
               key={el.id + el.name}
               type="button"
-              className=" gray_btn mt-5"
+              className=" gray_btn mt-5 shadow-2xl"
               value={el.name}
               onClick={handleClickCategory}
               onDoubleClick={() => setLesson(baseLesson)}
