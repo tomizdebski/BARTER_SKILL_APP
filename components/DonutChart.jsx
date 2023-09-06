@@ -1,22 +1,22 @@
 import DonutChart from 'react-donut-chart';
 
 
-const DonutChart = () => {
+const DonutChartt = ({score}) => {
   return (
     <DonutChart
       data={[
         {
-          label: "Give you up",
-          value: 25,
+          label: "Dobrych odpowiedzi",
+          value: (score *10) ,
         },
         {
-          label: "",
-          value: 75,
-          isEmpty: true,
+          label: "Błędnych odpowiedzi ",
+          value: (100 - (score* 10)),
+          // isEmpty: true,
         },
       ]}
     />
   );
 };
 
-export default DonutChart;
+export default DonutChartt;

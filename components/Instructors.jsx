@@ -26,11 +26,8 @@ export function CardInstructors({ filter, all }) {
   }, []);
 
   return (
-    <Card className=" mt-6 w-full pt-5 border-2 border-green-600">
-      <CardHeader
-        color="blue-gray"
-        className="relative h-40 flex justify-around rounded border-2 border-gray-700"
-      >
+    <Card className=" flex mt-6  pt-5 border-2 border-green-600">
+      
         {instructors.map((el) => (
           <Link href="/" className="flex-center flex-col">
             <Image
@@ -42,29 +39,11 @@ export function CardInstructors({ filter, all }) {
               onClick={() => filter(el.id)}
               onDoubleClick={all}
             />
-            <Typography variant="h6" color="green-600">
-              {el.firstName}
-            </Typography>
+            
           </Link>
         ))}
-      </CardHeader>
-      <CardBody className="rounded-full ">
-        {instructors.length === 0 && (
-          <Image
-            src={"/assets/icons/loader.svg"}
-            width={50}
-            height={50}
-            alt="Instructor"
-            className="w-20 h-20 rounded-full object-cover mr-4 shadow border border-sky-500"
-          />
-        )}
-        <Typography variant="h5" color="blue-gray">
-          Nasi instruktorzy
-        </Typography>
-      </CardBody>
-      {/* <CardFooter className="pt-0">
-          <Button>Read More</Button>
-        </CardFooter> */}
+      
+      
     </Card>
   );
 }

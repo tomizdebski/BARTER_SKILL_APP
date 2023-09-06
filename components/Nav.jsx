@@ -45,6 +45,9 @@ const Nav = () => {
           className="object-contain"
         />
       </Link>
+
+      
+
       
 
       {/* Menu */}
@@ -69,7 +72,26 @@ const Nav = () => {
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5 ">
+        
           <Search />
+
+          <Tooltip
+              content={<p>Sprawdź się w quiz</p>}
+              placement="top-end"
+              className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+            >
+              <Link
+                href="/quiz/"
+                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+              >
+                <Image
+                  src="/assets/icons/quiz1.svg"
+                  width={30}
+                  height={30}
+                  alt="Basket"
+                />
+              </Link>
+            </Tooltip>
 
           <Tooltip
             content={
