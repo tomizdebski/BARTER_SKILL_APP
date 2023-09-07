@@ -11,6 +11,11 @@ import DonutTestowy from "@components/DonutTestowy";
 const Quiz = () => {
   const [displayView, setDisplayView] = useState("intro");
   const [score, setScore] = useState(0);
+  const [themeQuiz, setThemeQuiz] = useState("");
+
+  
+
+
 
   return (
     <div className="bg-[url('/assets/icons/quiz/doodles.svg')] bg-cover min-h-screen flex flex-col items-center justify-center ">
@@ -23,6 +28,7 @@ const Quiz = () => {
                   onGoClick={() => {
                     setDisplayView("countdown");
                   }}
+                  onThemeSet = {setThemeQuiz}
                 />
               ),
 
@@ -39,9 +45,10 @@ const Quiz = () => {
                     setDisplayView("chart");
                   }}
                   onScore = {setScore}
+                  theme = {themeQuiz}
                 />
               ),
-              chart: <DonutChart score={score} />,
+              chart: <DonutChart score={score} name={themeQuiz}/>,
             }[displayView]
           }
         </AnimatePresence>

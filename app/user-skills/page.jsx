@@ -1,16 +1,25 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
-import { LessonBasketContext } from "@components/LessonBasketContext";
 import { UserContext } from "@components/UserContext";
-import { LessonsContext } from "@components/LessonsContext";
-import { Tooltip } from "@material-tailwind/react";
+
 
 const MySkills = () => {
-  const { basket, setBasket } = useContext(LessonBasketContext);
+  
   const { userInfo, setUserInfo } = useContext(UserContext);
-  const { lessons, setLessons } = useContext(LessonsContext);
+  const [skills, setSkills] = useState([]);
+  console.log(skills)
+  
+  
+
+  useEffect(() => {
+    axios
+    .get("http://localhost:4000/api/skills/" + userInfo.id)
+    .then((response) => setSkills(response.data));
+    
+    
+  }, [])
   
   
   return (
