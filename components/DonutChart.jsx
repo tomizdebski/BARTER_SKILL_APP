@@ -3,6 +3,7 @@ import DonutChart from 'react-donut-chart';
 
 const DonutChartt = ({score}) => {
   return (
+    
     <DonutChart
       data={[
         {
@@ -16,6 +17,7 @@ const DonutChartt = ({score}) => {
         },
       ]}
     />
+
   );
 };
 

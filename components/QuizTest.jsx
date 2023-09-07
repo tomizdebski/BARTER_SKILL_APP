@@ -26,6 +26,8 @@ const QuizTest = ({ onGoClick, onScore }) => {
   const countdown = useCountdown(240);
   const [answer, setAnswer] = useState("");
   const [scoreQ, setScoreQ] = useState(0);
+  
+  
 
   console.log(quiz[counter]);
 
@@ -74,7 +76,7 @@ const QuizTest = ({ onGoClick, onScore }) => {
       </div>
       {currentQuestion?.Question && (
         <>
-          <div className=" flex justify-between items-center">
+          <div className=" flex items-center gap-80 pb-10">
             <div>
               <span className="font-medium text-blue-600">{counter}</span>
               <span className="font-medium text-green-600">/10</span>
@@ -129,7 +131,7 @@ const QuizTest = ({ onGoClick, onScore }) => {
 
           <button
             onClick={handleClick}
-            className="w-48 text-blue-600 w-[70vh] font-normal flex justify-center items-center border-2 border-blue-600 rounded-lg hover:bg-gray-300"
+            className=" text-gray-800 w-[70vh] font-normal flex justify-center items-center border border-blue-600 rounded-lg hover:bg-gray-300 p-4 bg-blue-200"
           >
             Następne
           </button>

@@ -49,16 +49,16 @@ const MyBarters = () => {
 
   return (
     <div className=" bg-gray-100 pt-20 w-[100%] h-[100%]">
-      <h1 className="head_text text-center  blue_gradient">
+      <h1 className="head_text text-center  gray_gradient pb-14">
         Propozycje barteru
       </h1>
       <div className="mx-auto max-w-5xl justify-center  md:flex md:space-x-6 xl:px-0">
         <div className="rounded md:w-full">
           {filterUser.map((el, index) => (
-            <div key={shortid.generate()} className="m-10 bg-blue-gray-200  pt-10 pb-5 pr-20 rounded glassmorphism shadow-2xl border-2 border-green-600 rounded">
+            <div key={shortid.generate()} className="mt-5 mb-5  bg-blue-gray-200  pt-10 pb-5 pr-10 pl-10 rounded shadow-2xl shadow-black  opacity-80">
               <div
                 
-                className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
+                className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white shadow-2xl shadow-black"
               >
                 <Tooltip
                   content={
@@ -93,7 +93,7 @@ const MyBarters = () => {
 
               <div
                 
-                className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white"
+                className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white shadow-2xl shadow-black"
               >
                 <Tooltip
                   content={
@@ -127,7 +127,7 @@ const MyBarters = () => {
               </div>
               <div className="mt-4 flex-col justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <button
-                  className="outline_btn w-full"
+                  className="outline_btn w-full shadow-2xl shadow-black "
                   onClick={() => {
                     console.log("clik");
                     axios.post(`http://localhost:4000/api/barter-lessons/`, {
@@ -156,7 +156,7 @@ const MyBarters = () => {
         Bartery w trakcie realizacji
       </h1>
       {barterLessonActive.map(el => (
-      <div key={shortid.generate()} className="m-10 bg-blue-gray-200 pl-10 pt-10 pb-5 pr-20 rounded glassmorphism  border-2 border-green-600 ">
+      <div key={shortid.generate()} className="mt-5 mb-5 ml-16 mr-16 bg-blue-gray-200  pt-10 pb-5 pr-10 pl-10 rounded shadow-2xl shadow-black  opacity-80">
               
                 <div className="flex-col sm:ml-4 sm:flex sm:w-full sm:justify-between">
                   <div className="mt-5 sm:mt-0">
@@ -189,7 +189,7 @@ const MyBarters = () => {
               <div className="mt-4 flex gap-4 justify-between ">
                 
                 <button
-                  className="outline_btn w-full orange_gradient"
+                  className="outline_btn w-1/2 shadow-2xl shadow-black "
                   onClick={() => {
                     axios.delete(`http://localhost:4000/api/barter-lessons/${el.id}`)
                   }}
@@ -206,7 +206,7 @@ const MyBarters = () => {
                 </button>
 
                 <button
-                  className="outline_btn w-full blue_gradient"
+                  className="  shadow-black "
                   onClick={() => {
                     null
                   }}

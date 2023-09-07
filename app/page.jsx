@@ -6,6 +6,7 @@ import { LessonsContext } from "@components/LessonsContext";
 import { DialogLesson } from "@components/DialogLesson";
 import { Tooltip } from "@material-tailwind/react";
 import { CardInstructors } from "@components/Instructors";
+import shortid from "shortid";
 
 ///socket
 // import socketIO from "socket.io-client"
@@ -45,18 +46,18 @@ const Home = () => {
     setLesson(result);
   };
 
-  const filterInstructor = (instructorId) => {
+  // const filterInstructor = (instructorId) => {
     
-    const result = baseLesson.filter(
-      (el) => el.instructorId === instructorId
-    );
+  //   const result = baseLesson.filter(
+  //     (el) => el.instructorId === instructorId
+  //   );
 
-    setLesson(result);
-  };
+  //   setLesson(result);
+  // };
 
-  const all = () => {
-    setLesson(baseLesson);
-  };
+  // const all = () => {
+  //   setLesson(baseLesson);
+  // };
 
 
 
@@ -66,18 +67,19 @@ const Home = () => {
 
   return (
     <section className="w-full flex-center flex-col bg-gray-100">
-      <div className="head_text text-center p-5 ">
-        <span className="blue_gradient">
+
+      <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10 ">
+        <span className="gray_gradient ">
           Odkrywaj i wymieniaj się umiejętniościami
         </span>
 
         <br className="max-md:hidden" />
-        <span className="green_gradient text-center">
-          Czy umiesz coś czego nie umię ktoś inny?
+        <span className="green_gradient text-center desc">
+          Czy umiesz coś czego nie umie ktoś inny?
         </span>
         
       </div>
-      <div className="flex w-full  justify-between  p-3 flex-wrap ">
+      <div className="flex w-full gap-1 justify-center  p-3 flex-wrap ">
         {categories.map((el) => (
           <Tooltip
             content={
@@ -85,7 +87,7 @@ const Home = () => {
             }
             placement="top-end"
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10 "
-            key={el.id}
+            key={shortid.generate()}
           >
             <button
               key={el.id + el.name}
@@ -101,9 +103,9 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="flex gap-10 flex-wrap mb-10 mt-10 justify-around">
+      <div className="flex gap-4 flex-wrap mb-10 mt-10 justify-center">
         {lesson.map((el) => (
-          <DialogLesson key={el.id} lesson={el} />
+          <DialogLesson key={shortid.generate()} lesson={el} />
         ))}
       </div>
     </section>
