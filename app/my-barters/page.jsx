@@ -75,7 +75,7 @@ const MyBarters = () => {
                     width={80}
                     height={80}
                     alt="Avatar"
-                    className="h-12 w-12 rounded object-cover mr-4 shadow border border-sky-500"
+                    className="h-12 w-12 rounded-xl object-cover mr-4 shadow border border-sky-500"
                   />
                 </Tooltip>
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
@@ -92,7 +92,6 @@ const MyBarters = () => {
               </div>
 
               <div
-                
                 className="justify-between mb-6 rounded p-6 shadow-md sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white shadow-2xl shadow-black"
               >
                 <Tooltip
@@ -110,7 +109,7 @@ const MyBarters = () => {
                     width={80}
                     height={80}
                     alt="Avatar"
-                    className="h-12 w-12 rounded object-cover mr-4 shadow border border-sky-500"
+                    className="h-12 w-12 rounded-xl object-cover mr-4 shadow border border-sky-500"
                   />
                 </Tooltip>
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
@@ -150,13 +149,15 @@ const MyBarters = () => {
             </div>
           ))}
         </div>
-        
       </div>
-      <h1 className="head_text text-center p-5 blue_gradient">
+      <div className="mx-auto max-w-5xl justify-center  md:flex md:space-x-6 xl:px-0">
+        <div className="rounded md:w-full">
+        <h1 className="head_text text-center  gray_gradient pb-14">
         Bartery w trakcie realizacji
       </h1>
+      
       {barterLessonActive.map(el => (
-      <div key={shortid.generate()} className="mt-5 mb-5 ml-16 mr-16 bg-blue-gray-200  pt-10 pb-5 pr-10 pl-10 rounded shadow-2xl shadow-black  opacity-80">
+      <div key={shortid.generate()} className="mt-5 mb-5  bg-blue-gray-200  pt-10 pb-5 pr-10 pl-10 rounded shadow-2xl shadow-black  opacity-80">
               
                 <div className="flex-col sm:ml-4 sm:flex sm:w-full sm:justify-between">
                   <div className="mt-5 sm:mt-0">
@@ -217,6 +218,8 @@ const MyBarters = () => {
               </div>
             </div>
 ))}
+</div>
+</div>
     </div>
   );
 };

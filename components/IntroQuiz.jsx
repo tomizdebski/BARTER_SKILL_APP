@@ -40,7 +40,7 @@ const IntroQuiz = ({onGoClick, onThemeSet}) => {
         {categories.map((el) => (
           <div
           key={shortid.generate()}
-          className="flex flex-wrap justify-center mt-10 mb-12 cursor-pointer border-2 border-green-200 rounded-xl p-3 hover:bg-blue-gray-100"
+          className="flex flex-wrap justify-center mt-10 cursor-pointer border-4 border-gray-200 rounded-xl p-3 hover:bg-blue-gray-100"
             value={el.name}
             onClick={()=> {
               onThemeSet(el.name)

@@ -8,7 +8,7 @@ const Search = () => {
           <input
             type="text"
             placeholder="Wpisz czego szukasz..."
-            className="search_input"
+            className="search_input hover:scale-105"
             
           />
           <Image
@@ -16,7 +16,7 @@ const Search = () => {
           width={44}
           height={44}
           alt="menu"
-          className=" hover:bg-blue-100 hover:text-white rounded-lg"
+          className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
           onClick={null}
         />
         </div>
