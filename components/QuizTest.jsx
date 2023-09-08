@@ -18,13 +18,11 @@ import linuxQuiz from "@db_json/linux-quiz";
 import pythonQuiz from "@db_json/python-quiz";
 import qualityAssuranceQuiz from "@db_json/quality-assurance-quiz"; //testowanie
 import regexQuiz from "@db_json/regex-quiz";
-import securityQuiz from "@db_json/security-quiz";// bezp
+import securityQuiz from "@db_json/security-quiz"; // bezp
 import sqlQuiz from "@db_json/sql-quiz";
+import QuizTestCard from "./QuizTestCard";
 
-
-
-
-function shuffle(array) {
+export function shuffle(array) {
   let currentIndex = array.length;
   let randomIndex;
   while (currentIndex > 0) {
@@ -38,18 +36,15 @@ function shuffle(array) {
   return array;
 }
 
-
 const QuizTest = ({ onGoClick, onScore, theme }) => {
-
   const [quiz, setQuiz] = useState(false);
   const [counter, setCounter] = useState(1);
   const countdown = useCountdown(240);
   const [answer, setAnswer] = useState("");
   const [scoreQ, setScoreQ] = useState(0);
 
-  
   const handleClick = (e) => {
-    console.log("click")
+    console.log("click");
     if (answer == currentQuestion.Answer) {
       setCounter(counter + 1);
       setScoreQ(scoreQ + 1);
@@ -66,26 +61,53 @@ const QuizTest = ({ onGoClick, onScore, theme }) => {
   ];
   // brak szuffle pytan
 
-  
-
   useEffect(() => {
     let nameQuiz;
-    if(theme === "Css"){nameQuiz = cssQuiz};
-    if(theme === "Python"){nameQuiz = pythonQuiz};
-    if(theme === "Linux"){nameQuiz = linuxQuiz};
-    if(theme === "JS"){nameQuiz = javascriptQuiz};
-    if(theme === "Sieci"){nameQuiz = informationTechnologyQuiz};
-    if(theme === "HTML"){nameQuiz = htmlQuiz};
-    if(theme === "Git"){nameQuiz = gitQuiz};
-    if(theme === "DevOps"){nameQuiz = devopsQuiz};
-    if(theme === "DB"){nameQuiz = generalCSQuiz};
-    if(theme === "Cloud"){nameQuiz = cloudComputingQuiz};
-    if(theme === "Agile"){nameQuiz = agileQuiz};
-    if(theme === "Testowanie"){nameQuiz = qualityAssuranceQuiz};
-    if(theme === "Regex"){nameQuiz = regexQuiz};
-    if(theme === "Bezpieczeństow"){nameQuiz = securityQuiz};
-    if(theme === "Sql"){nameQuiz = sqlQuiz};
-
+    if (theme === "Css") {
+      nameQuiz = cssQuiz;
+    }
+    if (theme === "Python") {
+      nameQuiz = pythonQuiz;
+    }
+    if (theme === "Linux") {
+      nameQuiz = linuxQuiz;
+    }
+    if (theme === "JS") {
+      nameQuiz = javascriptQuiz;
+    }
+    if (theme === "Sieci") {
+      nameQuiz = informationTechnologyQuiz;
+    }
+    if (theme === "HTML") {
+      nameQuiz = htmlQuiz;
+    }
+    if (theme === "Git") {
+      nameQuiz = gitQuiz;
+    }
+    if (theme === "DevOps") {
+      nameQuiz = devopsQuiz;
+    }
+    if (theme === "DB") {
+      nameQuiz = generalCSQuiz;
+    }
+    if (theme === "Cloud") {
+      nameQuiz = cloudComputingQuiz;
+    }
+    if (theme === "Agile") {
+      nameQuiz = agileQuiz;
+    }
+    if (theme === "Testowanie") {
+      nameQuiz = qualityAssuranceQuiz;
+    }
+    if (theme === "Regex") {
+      nameQuiz = regexQuiz;
+    }
+    if (theme === "Bezpieczeństwo") {
+      nameQuiz = securityQuiz;
+    }
+    if (theme === "Sql") {
+      nameQuiz = sqlQuiz;
+    }
 
     let arrayQ = [];
     let randomQ = shuffle(nameQuiz);
@@ -104,75 +126,20 @@ const QuizTest = ({ onGoClick, onScore, theme }) => {
   return (
     <div
       key={shortid.generate()}
-      className="min-h-screen flex flex-col items-center pl-40 pr-40"
+      className="min-h-screen flex flex-col items-center pl-40 pr-40 "
     >
       <div className="mt-12 mb-12 head_text ">
         <span className="blue_gradient">Test </span>
       </div>
       {currentQuestion?.Question && (
-        <>
-          <div className=" flex items-center gap-80 pb-10">
-            <div>
-              <span className="font-medium text-blue-600">{counter}</span>
-              <span className="font-medium text-green-600">/10</span>
-            </div>
-
-            <div className="flex">
-              <div className="flex  items-center">
-                <img
-                  src="/assets/icons/quiz/time.svg"
-                  alt="timer"
-                  className="h-10 w-10"
-                />
-                <span className="font-medium ml-2 text-red-800">{`${formatTime(countdown)}`}</span>
-              </div>
-            </div>
-          </div>
-          <h2 className="font-bold mb-6 text-gray-900 wrap">
-            {currentQuestion.Question}
-          </h2>
-          <button
-            className="text-gray-800 font-normal w-[70vh]  bg-white cursor-pointer border border-gray-400 rounded-lg mb-4 hover:bg-green-300 focus:bg-blue-gray-500"
-            onClick={() => setAnswer(currentQuestion[arrayQuestions[0]])}
-          >
-            <label className="p-4 flex cursor-pointer ">
-              {`A. ${currentQuestion[arrayQuestions[0]]}`}
-            </label>
-          </button>
-          <button
-            className="text-gray-800 font-normal w-[70vh]  bg-white cursor-pointer border border-gray-400 rounded-lg mb-4 hover:bg-green-300 focus:bg-blue-gray-500"
-            onClick={() => setAnswer(currentQuestion[arrayQuestions[1]])}
-          >
-            <label className="p-4 flex cursor-pointer ">
-              {`B. ${currentQuestion[arrayQuestions[1]]}`}
-            </label>
-          </button>
-          <button
-            className="text-gray-800 font-normal w-[70vh]  bg-white cursor-pointer border border-gray-400 rounded-lg mb-4 hover:bg-green-300 focus:bg-blue-gray-500"
-            onClick={() => setAnswer(currentQuestion[arrayQuestions[2]])}
-          >
-            <label className="p-4 flex cursor-pointer ">
-              {`C. ${currentQuestion[arrayQuestions[2]]}`}
-            </label>
-          </button>
-          <button
-            className="text-gray-800 font-normal w-[70vh]  bg-white cursor-pointer border border-gray-400 rounded-lg mb-4 hover:bg-green-300 focus:bg-blue-gray-500"
-            onClick={() => setAnswer(currentQuestion[arrayQuestions[3]])}
-          >
-            <label className="p-4 flex cursor-pointer ">
-              {`D. ${currentQuestion[arrayQuestions[3]]}`}
-            </label>
-          </button>
-
-          
-          <button
-            onClick={handleClick}
-            className=" text-gray-800 w-[70vh] font-normal flex justify-center items-center border border-blue-600 rounded-lg hover:bg-gray-300 p-4 bg-blue-200"
-          >
-            Następne
-          </button>
-          {counter === 10 && <button onClick={onGoClick}>Koniec</button>}
-        </>
+        <QuizTestCard
+          counter={counter}
+          currentQuestion={currentQuestion}
+          countdown={countdown}
+          setAnswer={setAnswer}
+          onGoClick={onGoClick}
+          handleClick={handleClick}
+        />
       )}
     </div>
   );

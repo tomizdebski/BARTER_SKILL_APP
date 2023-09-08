@@ -43,7 +43,7 @@ const MySkills = () => {
               />
               <div>
                 {skills.map((el) => (
-                  <div className="flex p-5">
+                  <div key={shortid()} className="flex p-5">
                     <div className=" w-40 allign-center ml-5 mr-5 cursor-pointer bg-gray-200 border-2 border-gray-400 rounded-full p-3 hover:bg-blue-gray-100">
                       <span className=" text-lg font-semibold ml-2">
                         {el.name}
