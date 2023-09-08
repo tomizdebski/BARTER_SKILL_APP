@@ -14,7 +14,7 @@ const Search = () => {
 
 
   return (
-    <div className="relative flex w-full gap-2 md:w-max border-px ">
+    <div className="relative flex w-full gap-2 md:w-max border-px">
           <input
             type="text"
             placeholder="Wpisz czego szukasz..."

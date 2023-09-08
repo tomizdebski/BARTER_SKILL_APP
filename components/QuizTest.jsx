@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import shortid from "shortid";
 import { useCountdown } from "@hooks/useCoundown";
 import { formatTime } from "@utils/formatTime";
@@ -122,6 +122,8 @@ const QuizTest = ({ onGoClick, onScore, theme }) => {
     onScore(scoreQ);
     onGoClick();
   }
+
+  
 
   return (
     <div

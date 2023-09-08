@@ -78,7 +78,7 @@
 }
 
 .gray_btn {
-  @apply  rounded-xl border-2 w-28 border-gray-500 bg-gray-600 py-1.5 px-2 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+  @apply  rounded-xl border-2 w-28 border-gray-500 bg-gray-600 py-1.5 px-2 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center active:bg-black ;
 }
 
 .outline_btn {

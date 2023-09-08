@@ -18,8 +18,10 @@ const Home = () => {
   const { lessons, setLessons } = useContext(LessonsContext);
   const [baseLesson, setBaseLesson] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [arrayFilter, setArrayFilter] = useState([]);
 
-  
+ console.log(arrayFilter);
+ console.log(lesson)
 
   useEffect(() => {
     axios
@@ -32,22 +34,40 @@ const Home = () => {
         setLesson(data);
         setLessons(data);
         setBaseLesson(data);
-       
       });
   }, []);
 
   const handleClickCategory = (e) => {
     
+    // if (arrayFilter.length == 0 ) {
+    //   setArrayFilter([e.target.value]);
+    //   let result = baseLesson.filter((el) =>
+    //     arrayFilter.includes(el.category.name)
+    //   );
+    //   setLesson(result);
+    // } else {
+    //   setArrayFilter(prev => [...prev, e.target.value]);
+    //   let result = baseLesson.filter((el) =>
+    //     arrayFilter.includes(el.category.name)
+    //   );
+    //   setLesson(result);
+    // }    //// wersja z wyborem kilku kategorii
+    
+    
+    
 
-    const result = baseLesson.filter(
+    if(lesson == baseLesson) {
+      const result = baseLesson.filter(
       (el) => el.category.name === e.target.value
     );
-
     setLesson(result);
+    } else {
+      setLesson(baseLesson);
+    }
   };
 
   // const filterInstructor = (instructorId) => {
-    
+
   //   const result = baseLesson.filter(
   //     (el) => el.instructorId === instructorId
   //   );
@@ -59,15 +79,8 @@ const Home = () => {
   //   setLesson(baseLesson);
   // };
 
-
-
-  
-
-
-
   return (
     <section className="w-full flex-center flex-col bg-gray-100">
-
       <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10 ">
         <span className="gray_gradient ">
           Odkrywaj i wymieniaj się umiejętniościami
@@ -77,14 +90,11 @@ const Home = () => {
         <span className="green_gradient text-center desc">
           Czy umiesz coś czego nie umie ktoś inny?
         </span>
-        
       </div>
       <div className="flex w-full gap-1 justify-center  p-3 flex-wrap ">
         {categories.map((el) => (
           <Tooltip
-            content={
-             "Kategoria - doubleclick cofa filtrowanie"
-            }
+            content={"Kategoria - click cofa filtrowanie"}
             placement="top-end"
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10 "
             key={shortid.generate()}
@@ -92,10 +102,9 @@ const Home = () => {
             <button
               key={el.id + el.name}
               type="button"
-              className=" gray_btn mt-5 shadow-2xl"
+              className=" gray_btn mt-5 shadow-2xl "
               value={el.name}
               onClick={handleClickCategory}
-              onDoubleClick={() => setLesson(baseLesson)}
             >
               {el.name}
             </button>
@@ -104,7 +113,7 @@ const Home = () => {
       </div>
 
       <div className="flex gap-4 flex-wrap mb-10 mt-10 justify-center">
-        {lesson.map((el) => (
+        {lesson?.map((el) => (
           <DialogLesson key={shortid.generate()} lesson={el} />
         ))}
       </div>
