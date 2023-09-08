@@ -21,7 +21,7 @@ export const Countdown = ({ onGoClick }) => {
           clipPath: "circle(100% at 50% 50%)",
         },
       }}
-      className="w-[100vh] h-[100vh] flex justify-center items-center px-20 py-20"
+      className="w-[100%] h-[100%] flex justify-center items-center  fixed top-0 left-0"
       initial="initial"
       animate="animate"
       exit="exit"

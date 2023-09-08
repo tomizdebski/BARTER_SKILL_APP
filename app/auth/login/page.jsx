@@ -13,13 +13,9 @@ const Login = () => {
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
-      .min(4, "Za krótki!")
-      .max(50, "Za długi!")
+      .email("To nie jest email")
       .required("Login jest wymagany"),
-    password: Yup.string()
-      .min(4, "Za krótki!")
-      .max(50, "Za długi!")
-      .required("Hasło jest wymwagane"),
+    
   });
 
   const formOptions = { resolver: yupResolver(validationSchema) };
@@ -59,7 +55,7 @@ const Login = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         id="reset"
-        className="form_layout shadow-2xl border-2 border-green-600 rounded"
+        className="form_layout shadow-2xl border-2 border-gray-400 rounded"
       >
         
         <div className="py-1">

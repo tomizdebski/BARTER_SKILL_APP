@@ -48,7 +48,10 @@ const Quiz = () => {
                   theme = {themeQuiz}
                 />
               ),
-              chart: <DonutChart score={score} name={themeQuiz}/>,
+              chart: <DonutChart 
+              score={score} 
+              name={themeQuiz} 
+              />,
             }[displayView]
           }
         </AnimatePresence>

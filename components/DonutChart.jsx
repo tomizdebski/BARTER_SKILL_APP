@@ -34,10 +34,16 @@ const DonutChartt = ({ score, name }) => {
         ]}
       />
       <button 
-      className="text-gray-600 bg-yellow-600 p-3 rounded-full w-50 hover:bg-white hover:border-yellow-600 hover:border-4"
+      className="text-gray-600 bg-yellow-300 p-3 rounded-full sw-50 hover:bg-white hover:border-yellow-300 hover:border-2"
       onClick={handleSaveClick}
       >
         Zapisz do bazy
+      </button>
+      <button 
+      className="text-gray-600 bg-green-300 m-5 p-3 rounded-full w-50 hover:bg-white hover:border-green-300 hover:border-2"
+      onClick={() => router.push("/")}
+      >
+        Koniec
       </button>
     </div>
   );

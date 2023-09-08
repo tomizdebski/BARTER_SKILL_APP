@@ -82,13 +82,14 @@ const Nav = () => {
             >
               <Link
                 href="/quiz/"
-                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125 animate-pulse"
               >
                 <Image
                   src="/assets/icons/quiz1.svg"
                   width={30}
                   height={30}
                   alt="Basket"
+              
                 />
               </Link>
             </Tooltip>
@@ -111,13 +112,14 @@ const Nav = () => {
           >
             <Link
               href="/basket"
-              className=" hover:bg-blue-100 hover:text-white rounded-lg"
+              className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-110"
             >
               <Image
                 src="/assets/icons/basket.svg"
                 width={37}
                 height={37}
                 alt="Basket"
+                
               />
             </Link>
           </Tooltip>
@@ -130,13 +132,13 @@ const Nav = () => {
             >
               <Link
                 href="/my-barters"
-                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
               >
                 <Image
                   src="/assets/icons/barter_3.svg"
                   width={30}
                   height={30}
-                  alt="Basket"
+                  alt="Bartert"
                 />
               </Link>
             </Tooltip>
@@ -150,7 +152,7 @@ const Nav = () => {
             >
               <Link
                 href="/user-skills"
-                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
               >
                 <Image
                   src="/assets/icons/skill.svg"
@@ -170,7 +172,7 @@ const Nav = () => {
             >
               <Link
                 href="/create-lesson"
-                className=" hover:bg-blue-100 hover:text-white rounded-lg"
+                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
               >
                 <Image
                   src="/assets/icons/add.svg"

@@ -78,11 +78,11 @@
 }
 
 .gray_btn {
-  @apply  rounded border-2 w-28 border-gray-500 bg-gray-600 py-1.5 px-2 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+  @apply  rounded-xl border-2 w-28 border-gray-500 bg-gray-600 py-1.5 px-2 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
 }
 
 .outline_btn {
-  @apply rounded border border-gray-600 bg-blue-200 py-1.5 px-5 text-blue-600 transition-all hover:bg-blue-600 hover:text-white text-center text-sm font-inter font-bold flex items-center justify-center;
+  @apply rounded-xl border-2 border-gray-600  py-1.5 px-5 text-gray-600 transition-all hover:bg-gray-600 hover:text-white text-center text-sm font-inter font-bold flex items-center justify-center;
 }
 
 .head_text {
@@ -106,11 +106,11 @@
 }
 
 .desc {
-  @apply mt-10 text-lg text-blue-600 sm:text-xl max-w-2xl;
+  @apply mt-10 text-lg text-blue-100 sm:text-xl max-w-2xl;
 }
 
 .search_input {
-  @apply block w-full rounded-full border-2 border-green-600 bg-white  font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full rounded-full border-2 border-gray-600 bg-white  font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {
@@ -184,7 +184,7 @@
 }
 
 .submit-btn {
-  @apply border  px-5 py-1.5 rounded bg-green-500 text-white font-bold hover:bg-green-600;
+  @apply border  px-5 py-1.5 rounded-xl bg-green-500 text-white font-bold hover:bg-green-600;
 }
 
 input[type=file]::file-selector-button {

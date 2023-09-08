@@ -30,7 +30,7 @@ export function DialogProfil() {
         width={60}
         height={60}
         alt="Profile"
-        className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500"
+        className="w-10 h-10 rounded-full object-cover mr-4 shadow border border-sky-500 hover:scale-125"
         onClick={handleOpen}
       />
 
