@@ -132,6 +132,8 @@ const MyBarters = () => {
                     axios.post(`http://localhost:4000/api/barter-lessons/`, {
                       lessonId: +el.el.id,
                       lessonExId: +el.item.id,
+                      emailI: el.el.instructor.email,
+                      emailS: el.el.student.email
                     });
                   }}
                 >
