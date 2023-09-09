@@ -38,8 +38,10 @@ const Login = () => {
       console.log("res",res);
       if (res.status !== 500) {
         setUserInfo(res);
-        window.localStorage.setItem("user", JSON.stringify(res));
-        console.log("localStorage", JSON.parse(window.localStorage.getItem("user")))
+        // window.localStorage.setItem("user", JSON.stringify(res));
+        // console.log("localStorage", JSON.parse(window.localStorage.getItem("user")))
+        window.sessionStorage.setItem("user", JSON.stringify(res));
+        console.log("sessionStorage", JSON.parse(window.sessionStorage.getItem("user")))
       }
 
       if (response) {

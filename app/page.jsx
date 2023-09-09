@@ -38,13 +38,15 @@ const Home = () => {
 
   const handleClickCategory = (e) => {
     
+    if(baseLesson === lesson){
+      const result = baseLesson.filter(
+        (el) => el.category.name === e.target.value
+      );
+      setLesson(result);
+    } else {setLesson(baseLesson)}
+    };
 
-    const result = baseLesson.filter(
-      (el) => el.category.name === e.target.value
-    );
-
-    setLesson(result);
-  };
+    
 
   // const filterInstructor = (instructorId) => {
     
@@ -83,7 +85,7 @@ const Home = () => {
         {categories.map((el) => (
           <Tooltip
             content={
-             "Kategoria - doubleclick cofa filtrowanie"
+             "Kategoria - click cofa filtrowanie"
             }
             placement="top-end"
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10 "

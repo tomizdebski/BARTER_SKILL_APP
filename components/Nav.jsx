@@ -24,7 +24,7 @@ const Nav = () => {
 
   useEffect(() => {
     
-    setUserInfo(JSON.parse(window.localStorage.getItem("user")));
+    setUserInfo(JSON.parse(window.sessionStorage.getItem("user")));
     
   
   }, [])
