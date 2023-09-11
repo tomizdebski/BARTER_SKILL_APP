@@ -1,5 +1,7 @@
 ### BARTER_APP
 
+This is an application for exchanging skills between registered users. It also includes a quiz where you can test your knowledge.
+
 ## Technologies
 Project is created with:
 * Next
