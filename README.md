@@ -9,7 +9,7 @@ Project is created with:
 * Thailwind
 
 
-![](/public/assets/images/widok_aplikacji.png)
+![](/public/assets/images/widok_aplikacji1.png)
 
 
 ## Getting Started
