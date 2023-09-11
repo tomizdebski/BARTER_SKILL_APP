@@ -11,6 +11,10 @@ export const metadata = {
   description: "Exchange skills",
 };
 
+
+
+
+
 const RootLayout = ({ children }) => {
   return (
     <html lang="pl">

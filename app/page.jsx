@@ -71,12 +71,12 @@ const Home = () => {
     <section className="w-full flex-center flex-col bg-gray-100">
 
       <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10 ">
-        <span className="gray_gradient ">
+        <span className="gray_gradient font-andika">
           Odkrywaj i wymieniaj się umiejętniościami
         </span>
 
         <br className="max-md:hidden" />
-        <span className="green_gradient text-center desc">
+        <span className="green_gradient text-center desc font-andika">
           Czy umiesz coś czego nie umie ktoś inny?
         </span>
         
@@ -88,13 +88,13 @@ const Home = () => {
              "Kategoria - click cofa filtrowanie"
             }
             placement="top-end"
-            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10 "
+            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
             key={shortid.generate()}
           >
             <button
               key={el.id + el.name}
               type="button"
-              className=" gray_btn mt-5 shadow-2xl"
+              className=" gray_btn mt-5 shadow-2xl "
               value={el.name}
               onClick={handleClickCategory}
               onDoubleClick={() => setLesson(baseLesson)}

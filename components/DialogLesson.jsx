@@ -35,10 +35,10 @@ export function DialogLesson({ lesson }) {
           className="h-48 w-96 object-cover object-center"
           src={"http://localhost:4000/" + lesson.photo}
         />
-        <h2 className="text-lg font-semibold text-gray-900 mt-1 text-center">
+        <h2 className="text-lg font-semibold text-gray-900 mt-1 text-center font-andika">
           {lesson.name}{" "}
         </h2>
-        <small className="text-sm text-gray-700 text-center mb-1">
+        <small className="text-sm text-gray-700 text-center mb-1 font-andika">
           {" "}
           {lesson.instructor.firstName}
         </small>
@@ -56,21 +56,21 @@ export function DialogLesson({ lesson }) {
               <Typography
                 variant="small"
                 color="blue-gray"
-                className="font-medium"
+                className="font-medium font-andika"
               >
                 {lesson.instructor.firstName + " " + lesson.instructor.lastName}
               </Typography>
               <Typography
                 variant="small"
                 color="gray"
-                className="text-xs font-normal"
+                className="text-xs font-normal font-andika"
               >
                 {lesson.category.name}
               </Typography>
             </div>
           </div>
           <div>
-            <Typography variant="h1" color="blue-gray" className="font-medium">
+            <Typography variant="h1" color="blue-gray" className="font-medium font-andika">
               {lesson.name}
             </Typography>
           </div>

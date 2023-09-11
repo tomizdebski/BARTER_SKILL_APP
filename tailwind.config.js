@@ -14,6 +14,7 @@ module.exports = withMT({
       fontFamily: {
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        andika: ['Andika', 'sans-serif'],
       },
       colors: {
         'primary-orange': '#FF5722',
