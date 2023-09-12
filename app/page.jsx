@@ -7,6 +7,7 @@ import { DialogLesson } from "@components/DialogLesson";
 import { Tooltip } from "@material-tailwind/react";
 import { CardInstructors } from "@components/Instructors";
 import shortid from "shortid";
+import CategoryBtn from "@components/CategoryBtn";
 
 ///socket
 // import socketIO from "socket.io-client"
@@ -36,11 +37,12 @@ const Home = () => {
       });
   }, []);
 
-  const handleClickCategory = (e) => {
+  const handleClickCategory = (value) => {
+    
     
     if(baseLesson === lesson){
       const result = baseLesson.filter(
-        (el) => el.category.name === e.target.value
+        (el) => el.category.name === value
       );
       setLesson(result);
     } else {setLesson(baseLesson)}
@@ -80,6 +82,7 @@ const Home = () => {
           Czy umiesz coś czego nie umie ktoś inny?
         </span>
         
+        
       </div>
       <div className="flex w-full gap-1 justify-center  p-3 flex-wrap ">
         {categories.map((el) => (
@@ -91,21 +94,14 @@ const Home = () => {
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
             key={shortid.generate()}
           >
-            <button
-              key={el.id + el.name}
-              type="button"
-              className=" gray_btn mt-5 shadow-2xl "
-              value={el.name}
-              onClick={handleClickCategory}
-              onDoubleClick={() => setLesson(baseLesson)}
-            >
-              {el.name}
-            </button>
+            <CategoryBtn setCat={handleClickCategory} value={el.name}/>
+            
           </Tooltip>
         ))}
       </div>
 
       <div className="flex gap-4 flex-wrap mb-10 mt-10 justify-center">
+
         {lesson.map((el) => (
           <DialogLesson key={shortid.generate()} lesson={el} />
         ))}
