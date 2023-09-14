@@ -49,7 +49,8 @@ const Register = () => {
   let imgRef = useRef();
   const router = useRouter();
 
-  const url = "http://localhost:4000/api/register";
+  const url = process.env.NEXT_PUBLIC_URL_API + "/api/register";
+  //const url = "https://barter-api-f7pa.onrender.com/api/register";
 
   const formik = useFormik({
     initialValues: {

@@ -20,14 +20,14 @@ const Home = () => {
   const [baseLesson, setBaseLesson] = useState([]);
   const [categories, setCategories] = useState([]);
 
-  
+  console.log(process.env.NEXT_PUBLIC_URL_API)
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/categories")
+      .get(process.env.NEXT_PUBLIC_URL_API + "/api/categories")
       .then((response) => setCategories(response.data));
 
-    fetch("http://localhost:4000/api/lessons")
+    fetch(process.env.NEXT_PUBLIC_URL_API + "/api/lessons")
       .then((response) => response.json())
       .then((data) => {
         setLesson(data);

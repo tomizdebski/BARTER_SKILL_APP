@@ -18,7 +18,7 @@ export function CardInstructors({ filter, all }) {
   console.log("instructors", instructors);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/users").then((req) => {
+    axios.get(process.env.NEXT_PUBLIC_URL_API + "/api/users").then((req) => {
       const { data } = req;
       const filterInstructor = data.filter((el) => el.instructor.length > 0);
       setInstructors(filterInstructor);
@@ -31,7 +31,7 @@ export function CardInstructors({ filter, all }) {
         {instructors.map((el) => (
           <Link href="/" className="flex-center flex-col">
             <Image
-              src={"http://localhost:4000/" + el.avatar}
+              src={process.env.NEXT_PUBLIC_URL_API + "/" + el.avatar}
               width={50}
               height={50}
               alt="Instructor"

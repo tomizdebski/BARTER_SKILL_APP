@@ -33,7 +33,7 @@ export function DialogLesson({ lesson }) {
         <img
           alt="photo"
           className="h-48 w-96 object-cover object-center"
-          src={"http://localhost:4000/" + lesson.photo}
+          src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.photo}
         />
         <h2 className="text-lg font-semibold text-gray-900 mt-1 text-center font-andika">
           {lesson.name}{" "}
@@ -49,8 +49,8 @@ export function DialogLesson({ lesson }) {
             <Avatar
               size="sm"
               variant="circular"
-              alt="tania andrew"
-              src={"http://localhost:4000/" + lesson.instructor.avatar}
+              alt="avatar"
+              src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.instructor.avatar}
             />
             <div className="-mt-px flex flex-col">
               <Typography
@@ -105,7 +105,7 @@ export function DialogLesson({ lesson }) {
           <img
             alt="photo"
             className="h-[24rem] w-full object-cover object-center"
-            src={"http://localhost:4000/" + lesson.photo}
+            src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.photo}
           />
         </DialogBody>
         <DialogFooter className="justify-between">

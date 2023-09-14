@@ -6,7 +6,7 @@ import QuizTest from "@components/QuizTest";
 import { Countdown } from "@components/CountDown";
 import DonutChart from "@components/DonutChart";
 import IntroQuiz from "@components/IntroQuiz";
-import DonutTestowy from "@components/DonutTestowy";
+
 
 const Quiz = () => {
   const [displayView, setDisplayView] = useState("intro");

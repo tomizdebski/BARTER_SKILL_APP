@@ -29,7 +29,7 @@ const Basket = () => {
                 className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
               >
                 <Image
-                  src={"http://localhost:4000/" + el.instructor.avatar}
+                  src={process.env.NEXT_PUBLIC_URL_API + "/" + el.instructor.avatar}
                   width={80}
                   height={80}
                   alt="Avatar"
@@ -52,7 +52,7 @@ const Basket = () => {
                       <button className="outline_btn bg-deep-orange-900 mt-5" onClick={()=>{
                         console.log('patch--', el.id, userInfo.id)
                         console.log(el)
-                        axios.patch(`http://localhost:4000/api/lesson/${el.id}`, {"studentId": userInfo.id})
+                        axios.patch(process.env.NEXT_PUBLIC_URL_API + `/api/lesson/${el.id}`, {"studentId": userInfo.id})
             
                       }}>
                         Zapisz

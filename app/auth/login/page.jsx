@@ -26,7 +26,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       console.log("przed fetch", data);
-      const response = await fetch("http://localhost:4000/api/login", {
+      const response = await fetch(process.env.NEXT_PUBLIC_URL_API + "/api/login", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

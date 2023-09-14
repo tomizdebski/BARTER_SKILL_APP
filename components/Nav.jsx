@@ -20,7 +20,7 @@ const Nav = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const { basket, setBasket } = useContext(LessonBasketContext);
 
-  const URL_API = "http://localhost:4000/";
+  const URL_API = process.env.NEXT_PUBLIC_URL_API + "/";
 
   useEffect(() => {
     

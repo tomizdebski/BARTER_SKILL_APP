@@ -13,7 +13,7 @@ const MySkills = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/skills/" + userInfo.id)
+      .get(process.env.NEXT_PUBLIC_URL_API + "/api/skills/" + userInfo.id)
       .then((response) => {
         let res = response.data;
         let resp = res.filter(el => el.user.id === userInfo.id)
@@ -35,7 +35,7 @@ const MySkills = () => {
           <div className="mt-5 mb-5  bg-blue-gray-200  pt-10 pb-5 pr-10 pl-10 rounded shadow-2xl shadow-black  opacity-80">
             <div className="justify-between mb-6 rounded p-6  sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white shadow-2xl shadow-black">
               <Image
-                src={"http://localhost:4000/" + userInfo.avatar}
+                src={process.env.NEXT_PUBLIC_URL_API + "/" + userInfo.avatar}
                 width={80}
                 height={80}
                 alt="Avatar"

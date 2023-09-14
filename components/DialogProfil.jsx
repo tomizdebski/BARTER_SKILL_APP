@@ -28,7 +28,7 @@ export function DialogProfil() {
     <>
       {userInfo ? (
         <Image
-          src={"http://localhost:4000/" + userInfo?.avatar}
+          src={process.env.NEXT_PUBLIC_URL_API + "/" + userInfo?.avatar}
           width={60}
           height={60}
           alt="Profile"
@@ -50,7 +50,7 @@ export function DialogProfil() {
         <DialogHeader className="justify-between">
           {userInfo && (
             <Image
-              src={"http://localhost:4000/" + userInfo?.avatar}
+              src={process.env.NEXT_PUBLIC_URL_API + "/" + userInfo?.avatar}
               width={60}
               height={60}
               alt="Profile"

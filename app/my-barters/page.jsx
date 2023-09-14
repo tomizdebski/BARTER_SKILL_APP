@@ -17,9 +17,9 @@ const MyBarters = () => {
 
   useEffect(() => {
     axios
-    .get("http://localhost:4000/api/barter-lessons")
+    .get(process.env.NEXT_PUBLIC_URL_API + "/api/barter-lessons")
     .then((response) => setBarterLessonActive(response.data));
-    fetch("http://localhost:4000/api/lessons")
+    fetch(process.env.NEXT_PUBLIC_URL_API + "/api/lessons")
       .then((response) => response.json())
       .then((data) => {
         setLessons(data);
@@ -129,7 +129,7 @@ const MyBarters = () => {
                   className="outline_btn w-full shadow-2xl shadow-black "
                   onClick={() => {
                     console.log("clik");
-                    axios.post(`http://localhost:4000/api/barter-lessons/`, {
+                    axios.post(process.env.NEXT_PUBLIC_URL_API + `/api/barter-lessons/`, {
                       lessonId: +el.el.id,
                       lessonExId: +el.item.id,
                       emailI: el.el.instructor.email,
@@ -194,7 +194,7 @@ const MyBarters = () => {
                 <button
                   className="outline_btn w-1/2 shadow-2xl shadow-black "
                   onClick={() => {
-                    axios.delete(`http://localhost:4000/api/barter-lessons/${el.id}`)
+                    axios.delete(process.env.NEXT_PUBLIC_URL_API + `/api/barter-lessons/${el.id}`)
                   }}
                 >
                   

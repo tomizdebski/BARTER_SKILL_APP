@@ -10,7 +10,7 @@ const DonutChartt = ({ score, name }) => {
 
   const handleSaveClick = () => {
     axios
-    .post("http://localhost:4000/api/skills/", {
+    .post(process.env.NEXT_PUBLIC_URL_API + "/api/skills/", {
       name: name,
       level: +score,
       userId : +userInfo.id

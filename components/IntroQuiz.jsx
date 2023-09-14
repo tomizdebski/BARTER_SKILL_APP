@@ -10,7 +10,7 @@ const IntroQuiz = ({onGoClick, onThemeSet}) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/categories")
+      .get(process.env.NEXT_PUBLIC_URL_API + "/api/categories")
       .then((response) => setCategories(response.data));
   }, []);
   

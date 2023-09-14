@@ -58,11 +58,11 @@ const CreateLesson = () => {
   let imgRefV = useRef();
   const router = useRouter();
   const [categories, setCategories] = useState([]);
-  const url = "http://localhost:4000/api/lesson";
+  const url = process.env.NEXT_PUBLIC_URL_API + "/api/lesson";
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/categories")
+      .get(process.env.NEXT_PUBLIC_URL_API + "/api/categories")
       .then((response) => setCategories(response.data));
   }, []);
 
