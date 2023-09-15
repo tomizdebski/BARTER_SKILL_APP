@@ -71,7 +71,7 @@ const MyBarters = () => {
                   className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
                 > 
                   <Image
-                    src={"http://localhost:4000/" + el.el.instructor.avatar}
+                    src={process.env.NEXT_PUBLIC_URL_API + "/" + el.el.instructor.avatar}
                     width={80}
                     height={80}
                     alt="Avatar"
@@ -105,7 +105,7 @@ const MyBarters = () => {
                   className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
                 >
                   <Image
-                    src={"http://localhost:4000/" + el.item.instructor.avatar}
+                    src={process.env.NEXT_PUBLIC_URL_API + "/" + el.item.instructor.avatar}
                     width={80}
                     height={80}
                     alt="Avatar"
