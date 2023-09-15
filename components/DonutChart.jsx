@@ -19,7 +19,7 @@ const DonutChartt = ({ score, name }) => {
   };
 
   return (
-    <div className="flex-col">
+    <div className="flex-col w-auto h-auto">
       <DonutChart
         data={[
           {
