@@ -72,7 +72,7 @@ const Home = () => {
   return (
     <section className="w-full flex-center flex-col bg-gray-100">
 
-      <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10 ">
+      <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10">
         <span className="gray_gradient font-andika">
           Odkrywaj i wymieniaj się umiejętniościami
         </span>
@@ -94,7 +94,7 @@ const Home = () => {
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
             key={shortid.generate()}
           >
-            <CategoryBtn setCat={handleClickCategory} value={el.name} className="w-full"/>
+            <CategoryBtn setCat={handleClickCategory} value={el.name} />
             
           </Tooltip>
         ))}

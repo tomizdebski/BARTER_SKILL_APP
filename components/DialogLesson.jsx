@@ -35,15 +35,15 @@ export function DialogLesson({ lesson }) {
           className="h-48 w-96 object-cover object-center"
           src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.photo}
         />
-        <h2 className="text-lg font-semibold text-gray-900 mt-1 text-center font-andika">
+        <h4 className="text-l font-semibold text-gray-900 mt-1 text-center font-andika ">
           {lesson.name}{" "}
-        </h2>
+        </h4>
         <small className="text-sm text-gray-700 text-center mb-1 font-andika">
           {" "}
           {lesson.instructor.firstName}
         </small>
       </Card>
-      <Dialog size="xl" open={open} handler={handleOpen}>
+      <Dialog size="l" open={open} handler={handleOpen}>
         <DialogHeader className="justify-between">
           <div className="flex items-center gap-3">
             <Avatar
@@ -70,7 +70,7 @@ export function DialogLesson({ lesson }) {
             </div>
           </div>
           <div>
-            <Typography variant="h1" color="blue-gray" className="font-medium font-andika">
+            <Typography variant="h4" color="blue-gray" className="font-medium font-andika">
               {lesson.name}
             </Typography>
           </div>
