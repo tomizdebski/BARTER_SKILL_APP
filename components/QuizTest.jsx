@@ -126,7 +126,7 @@ const QuizTest = ({ onGoClick, onScore, theme }) => {
   return (
     <div
       key={shortid.generate()}
-      className="min-h-screen flex flex-col items-center pl-40 pr-40 "
+      className="min-h-screen flex flex-col items-center pl-4 pr-4 "
     >
       <div className="mt-12 mb-12 head_text ">
         <span className="blue_gradient">Test </span>
