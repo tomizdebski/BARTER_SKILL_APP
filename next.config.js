@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
     images: {
-      //formats: ['image/jpg', 'image/webp', 'image/png'],
+
+     
+
+      // formats: ['image/jpg', 'image/webp', 'image/png'],
+
       remotePatterns: [
         {
           protocol: 'https',
