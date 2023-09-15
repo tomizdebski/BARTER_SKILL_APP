@@ -84,7 +84,7 @@ const Home = () => {
         
         
       </div>
-      <div className="flex w-full gap-1 justify-center  p-3 flex-wrap ">
+      <div className="flex w-full gap-1 justify-around  p-3 flex-wrap ">
         {categories.map((el) => (
           <Tooltip
             content={
@@ -94,7 +94,7 @@ const Home = () => {
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
             key={shortid.generate()}
           >
-            <CategoryBtn setCat={handleClickCategory} value={el.name}/>
+            <CategoryBtn setCat={handleClickCategory} value={el.name} className="w-full"/>
             
           </Tooltip>
         ))}
