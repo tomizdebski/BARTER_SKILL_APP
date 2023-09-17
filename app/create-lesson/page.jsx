@@ -102,7 +102,7 @@ const CreateLesson = () => {
   });
 
   return (
-    <div className="my-8 mx-8 ">
+    <div className="my-8  shadow-2xl rounded">
       <form
         onSubmit={formik.handleSubmit}
         encType="multipart/form-data"
