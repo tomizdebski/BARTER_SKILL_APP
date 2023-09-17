@@ -104,6 +104,20 @@ export function DialogProfil() {
               </Typography>
 
               <ul className="mt-1 -ml-2 flex flex-col gap-1">
+
+              <MenuItem className="flex items-center gap-3">
+                  <img
+                    src="/assets/icons/add.svg"
+                    alt="metamast"
+                    className="h-6 w-6"
+                  />
+                  <Link href="/create-lesson" onClick={handleOpen}>
+                    <Typography color="blue-gray" variant="h6">
+                      Dodaj lekcję
+                    </Typography>
+                  </Link>
+                </MenuItem>
+
                 <MenuItem className="flex items-center gap-3">
                   <img
                     src="/assets/icons/barter_3.svg"
