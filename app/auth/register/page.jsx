@@ -81,15 +81,15 @@ const Register = () => {
   });
 
   return (
-    <div className="my-8 mx-8">
+    <div className="my-8 shadow-2xl s">
       
       <form
         onSubmit={formik.handleSubmit}
         encType="multipart/form-data"
-        className="form_layout shadow-2xl border-2 border-green-600 rounded"
+        className="form_layout shadow-2xl rounded"
       >
         
-        <h1 className="head_text text-left pb-2 text-center">
+        <h1 className="head_text text-leftpb-2 text-center">
           <span className="blue_gradient">Zarejestruj się w BARTER</span>
           <img
             className=" rounded-full"
