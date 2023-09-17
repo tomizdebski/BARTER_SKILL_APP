@@ -53,11 +53,11 @@ const Login = () => {
   };
 
   return (
-    <div className="my-8 mx-8 shadow-2xl">
+    <div className="my-8 mx-2 shadow-2xl ">
       <form
         onSubmit={handleSubmit(onSubmit)}
         id="reset"
-        className="form_layout shadow-2xl border-2 border-gray-400 rounded"
+        className="form_layout shadow-2xl   rounded"
       >
         
         <div className="py-1">

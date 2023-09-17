@@ -27,7 +27,7 @@ export function DialogLesson({ lesson }) {
   return (
     <>
       <Card
-        className="h-50 w-60 cursor-pointer overflow-hidden shadow-xl  border-gray-600 transition-opacity hover:opacity-90 bg-gray-400 hover:border-2"
+        className="h-60 w-80 cursor-pointer overflow-hidden shadow-xl  border-gray-600 transition-opacity hover:opacity-90 bg-gray-400 hover:border-2"
         onClick={handleOpen}
       >
         <img
