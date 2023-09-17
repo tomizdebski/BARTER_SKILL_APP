@@ -147,7 +147,7 @@
 }
 
 .form_layout {
-  @apply mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism;
+  @apply  w-full max-w-2xl flex flex-col gap-7 glassmorphism;
 }
 
 .form_label {
