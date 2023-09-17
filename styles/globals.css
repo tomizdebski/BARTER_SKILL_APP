@@ -81,7 +81,7 @@
 }
 
 .gray_btn {
-  @apply  rounded-xl border-2 w-auto border-gray-500 bg-gray-600 py-1.5 px-2 text-white  focus:bg-white hover:bg-white hover:text-black  text-center text-sm font-andika flex items-center justify-center;
+  @apply  rounded border w-auto border-gray-500 bg-gray-400 py-1.5 px-2 text-gray-800  focus:bg-white hover:bg-white hover:text-black  text-center text-sm font-andika flex items-center justify-center;
 }
 
 .gray_btn_active {

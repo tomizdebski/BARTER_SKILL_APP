@@ -13,7 +13,7 @@ const CategoryBtn = ({setCat, value}) => {
       <div className="center w-auto sm:w-auto flex-shrink">
         <button
           onClick={handleClick}
-          className={active ? "gray_btn_active" : "gray_btn"}
+          className={active ? "gray_btn_active" : "gray_btn "}
         >
           {value}
         </button>
