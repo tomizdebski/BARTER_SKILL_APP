@@ -104,7 +104,7 @@ export function DialogLesson({ lesson }) {
           </div>
           <img
             alt="photo"
-            className="h-[24rem] w-full object-cover object-center"
+            className="h-[20rem] w-full object-cover object-center"
             src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.photo}
           />
         </DialogBody>
@@ -122,9 +122,9 @@ export function DialogLesson({ lesson }) {
               {/* <Typography variant="small" color="gray" className="font-normal">
                 Oceny
               </Typography> */}
-              <Typography color="blue-gray" className="font-medium">
+              {/* <Typography color="blue-gray" className="font-medium">
                 &#10031; &#10031; &#10031;
-              </Typography>
+              </Typography> */}
             </div>
           </div>
 
