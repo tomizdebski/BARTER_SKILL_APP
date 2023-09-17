@@ -111,17 +111,17 @@ export function DialogLesson({ lesson }) {
         <DialogFooter className="justify-between">
           <div className="flex items-center gap-16">
             <div>
-              <Typography variant="small" color="gray" className="font-normal">
+              {/* <Typography variant="small" color="gray" className="font-normal">
                 Liczba lekcji
               </Typography>
               <Typography color="blue-gray" className="font-medium">
                 44
-              </Typography>
+              </Typography> */}
             </div>
             <div>
-              <Typography variant="small" color="gray" className="font-normal">
+              {/* <Typography variant="small" color="gray" className="font-normal">
                 Oceny
-              </Typography>
+              </Typography> */}
               <Typography color="blue-gray" className="font-medium">
                 &#10031; &#10031; &#10031;
               </Typography>
@@ -147,7 +147,7 @@ export function DialogLesson({ lesson }) {
               />
             Dodaj do koszyka
           </Button>)}
-          <Button
+          {/* <Button
             size="sm"
             variant="outlined"
             color="blue-gray"
@@ -166,7 +166,7 @@ export function DialogLesson({ lesson }) {
               />
             </svg>
             Udostępnij
-          </Button>
+          </Button> */}
         </DialogFooter>
       </Dialog>
     </>

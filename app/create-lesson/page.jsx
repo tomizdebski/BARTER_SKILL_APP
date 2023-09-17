@@ -102,11 +102,11 @@ const CreateLesson = () => {
   });
 
   return (
-    <div className="my-8  shadow-2xl rounded">
+    <div className="my-8  shadow-2xl ">
       <form
         onSubmit={formik.handleSubmit}
         encType="multipart/form-data"
-        className="form_layout"
+        className="form_layout shadow-2xl rounded"
       >
         <h1 className="head_text text-left pb-10 text-center">
           <span className="blue_gradient">Dodaj oferowaną lekcję</span>

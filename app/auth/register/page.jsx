@@ -81,7 +81,7 @@ const Register = () => {
   });
 
   return (
-    <div className="my-8 shadow-2xl s">
+    <div className="my-8 shadow-2xl ">
       
       <form
         onSubmit={formik.handleSubmit}
