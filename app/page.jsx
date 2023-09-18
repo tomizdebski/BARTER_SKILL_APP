@@ -70,7 +70,7 @@ const Home = () => {
 
 
   return (
-    <section className="w-full flex-center flex-col bg-gray-100">
+    <section className="w-full h-[80%] flex-center flex-col bg-gray-100">
 
       <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10">
         <span className="gray_gradient font-andika">

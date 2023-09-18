@@ -43,7 +43,7 @@ export function DialogLesson({ lesson }) {
           {lesson.instructor.firstName}
         </small>
       </Card>
-      <Dialog size="l" open={open} handler={handleOpen}>
+      <Dialog size="md" open={open} handler={handleOpen}>
         <DialogHeader className="justify-between">
           <div className="flex items-center gap-3">
             <Avatar
@@ -52,7 +52,7 @@ export function DialogLesson({ lesson }) {
               alt="avatar"
               src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.instructor.avatar}
             />
-            <div className="-mt-px flex flex-col">
+            <div className="mt-px flex flex-col">
               <Typography
                 variant="small"
                 color="blue-gray"
