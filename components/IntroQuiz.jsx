@@ -30,7 +30,7 @@ const IntroQuiz = ({onGoClick, onThemeSet}) => {
               className="w-20 h-20 rounded-full object-cover mr-4 shadow border-2 border-gray-700"
             />)}
      
-      <h2 className="text-3xl font-bold mb-5 text-center blue_gradient head_text">
+      <h2 className="text-3xl font-bold mb-5 text-center gray_gradient head_text">
         Witaj w quiz
       </h2>
       <p className="font-medium text-xl leading-7 text-center green_gradient">

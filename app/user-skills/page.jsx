@@ -27,12 +27,12 @@ const MySkills = () => {
 
   return (
     <div className=" bg-gray-100 pt-20 w-full">
-      <h1 className="head_text text-center p-5 blue_gradient">
+      <h1 className="head_text text-center p-5 gray_gradient">
         Moje umiejętności
       </h1>
       <div className="">
         <div className="rounded md:w-full">
-          <div className="mt-5 mb-5  bg-blue-gray-200  pt-10 pb-5 pr-10 pl-10 rounded shadow-2xl shadow-black  opacity-80">
+          <div className="mt-5 mb-5   pt-5 pb-5 pr-5 pl-5 rounded shadow-2xl shadow-black  opacity-80">
             <div className="justify-between mb-6 rounded p-6  sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white shadow-2xl shadow-black">
               <Image
                 src={process.env.NEXT_PUBLIC_URL_API + "/" + userInfo.avatar}

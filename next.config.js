@@ -1,11 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
     images: {
-
-     
-
-      // formats: ['image/jpg', 'image/webp', 'image/png'],
-
       remotePatterns: [
         {
           protocol: 'https',
@@ -16,7 +11,7 @@ module.exports = {
       ],
     },
   }
-  // localhost
+  //localhost
 
 // /** @type {import('next').NextConfig} */
 // module.exports = {
@@ -34,16 +29,3 @@ module.exports = {
 // }
 
 
-
-
-
-
-
-
-
-
-
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {}
-
-// module.exports = nextConfig
