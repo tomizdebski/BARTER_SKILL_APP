@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 
@@ -8,8 +9,8 @@ import { useState } from "react";
 const Search = () => {
 
   const [input, setInput] = useState("");
-  const [query, setQuery] = useState("");
-  console.log("input_search", input);
+  const router = useRouter();
+
 
 
 
@@ -28,7 +29,7 @@ const Search = () => {
           height={44}
           alt="menu"
           className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
-          onClick={()=> setQuery()}
+          onClick={()=> router.push('/search?q=' + input)}
         />
         </div>
   )
