@@ -94,6 +94,7 @@ const Nav = () => {
               </Link>
             </Tooltip>
 
+          {userInfo && (
           <Tooltip
             content={
               basket.length > 0 ? (
@@ -123,6 +124,7 @@ const Nav = () => {
               />
             </Link>
           </Tooltip>
+          )}
 
           {userInfo && (
             <Tooltip
