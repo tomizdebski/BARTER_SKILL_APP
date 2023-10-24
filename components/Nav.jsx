@@ -38,6 +38,7 @@ const Nav = () => {
     <nav className="flex-between w-full pt-3 glassmorphism">
       <Link href="/" className="flex gap-2 flex-center">
         <Image
+          data-test="home-logo"
           src="/assets/images/logo-barter.png"
           width={80}
           height={80}
@@ -124,7 +125,7 @@ const Nav = () => {
               />
             </Link>
           </Tooltip>
-          )}
+          )} 
 
           {userInfo && (
             <Tooltip
@@ -193,6 +194,7 @@ const Nav = () => {
               type="button"
               onClick={() => router.push(`/auth/login`)}
               className="outline_btn"
+              data-test="home-login-button"
             >
               Zaloguj
             </button>
@@ -200,6 +202,7 @@ const Nav = () => {
               type="button"
               onClick={() => router.push(`/auth/register`)}
               className="outline_btn"
+              data-test="home-register-button"
             >
               Zarejestruj
             </button>

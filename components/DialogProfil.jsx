@@ -37,6 +37,7 @@ export function DialogProfil() {
         />
       ) : (
         <Image
+          data-test="home-hamburger-menu"
           src={"/assets/icons/menu.svg"}
           width={60}
           height={60}
