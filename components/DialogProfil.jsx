@@ -34,9 +34,11 @@ export function DialogProfil() {
           alt="Profile"
           className="w-10 h-10 rounded-full object-cover  shadow  p-1"
           onClick={handleOpen}
+          data-test="nav-link-avatar"
         />
       ) : (
         <Image
+          data-test="home-hamburger-menu"
           src={"/assets/icons/menu.svg"}
           width={60}
           height={60}
@@ -46,7 +48,7 @@ export function DialogProfil() {
         />
       )}
 
-      <Dialog size="xs" open={open} handler={handleOpen}>
+      <Dialog size="xs" open={open} handler={handleOpen} >
         <DialogHeader className="justify-between">
           {userInfo && (
             <Image
@@ -56,6 +58,7 @@ export function DialogProfil() {
               alt="Profile"
               className="w-10 h-10 rounded-full object-cover  shadow  p-1"
               onClick={handleOpen}
+              data-test="nav-link-avatar"
             />
           )}
 

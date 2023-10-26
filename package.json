@@ -17,11 +17,12 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
+    "cypress-file-upload": "^5.0.8",
     "date-fns": "^2.30.0",
     "formik": "^2.4.3",
     "framer-motion": "^10.16.2",
     "lottie-react": "^2.4.0",
-    "next": "13.4.13",
+    "next": "^13.5.6",
     "next-auth": "^4.22.4",
     "postcss": "8.4.27",
     "react": "18.2.0",
@@ -39,5 +40,8 @@
     "victory": "^36.6.11",
     "video-react": "^0.16.0",
     "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "cypress": "^13.3.2"
   }
 }

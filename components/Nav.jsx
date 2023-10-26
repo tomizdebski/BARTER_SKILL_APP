@@ -38,6 +38,7 @@ const Nav = () => {
     <nav className="flex-between w-full pt-3 glassmorphism">
       <Link href="/" className="flex gap-2 flex-center">
         <Image
+          data-test="home-logo"
           src="/assets/images/logo-barter.png"
           width={80}
           height={80}
@@ -83,6 +84,7 @@ const Nav = () => {
               <Link
                 href="/quiz/"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125 animate-pulse"
+                data-test="nav-link-quiz"
               >
                 <Image
                   src="/assets/icons/quiz1.svg"
@@ -94,6 +96,7 @@ const Nav = () => {
               </Link>
             </Tooltip>
 
+          {userInfo && (
           <Tooltip
             content={
               basket.length > 0 ? (
@@ -113,6 +116,7 @@ const Nav = () => {
             <Link
               href="/basket"
               className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-110"
+              data-test="nav-link-basket"
             >
               <Image
                 src="/assets/icons/basket.svg"
@@ -123,6 +127,7 @@ const Nav = () => {
               />
             </Link>
           </Tooltip>
+          )} 
 
           {userInfo && (
             <Tooltip
@@ -133,6 +138,7 @@ const Nav = () => {
               <Link
                 href="/my-barters"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
+                data-test="nav-link-barter"
               >
                 <Image
                   src="/assets/icons/barter_3.svg"
@@ -153,6 +159,7 @@ const Nav = () => {
               <Link
                 href="/user-skills"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
+                data-test="nav-link-skill"
               >
                 <Image
                   src="/assets/icons/skill.svg"
@@ -173,6 +180,7 @@ const Nav = () => {
               <Link
                 href="/create-lesson"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
+                data-test="nav-link-create-lesson"
               >
                 <Image
                   src="/assets/icons/add.svg"
@@ -191,6 +199,7 @@ const Nav = () => {
               type="button"
               onClick={() => router.push(`/auth/login`)}
               className="outline_btn"
+              data-test="home-login-button"
             >
               Zaloguj
             </button>
@@ -198,6 +207,7 @@ const Nav = () => {
               type="button"
               onClick={() => router.push(`/auth/register`)}
               className="outline_btn"
+              data-test="home-register-button"
             >
               Zarejestruj
             </button>
