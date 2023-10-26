@@ -95,6 +95,7 @@ const Register = () => {
             className=" rounded-full"
             style={{ height: "100px", width: "100px" }}
             ref={imgRef}
+            data-test="register-page-avatar"
           />
         </h1>
 
