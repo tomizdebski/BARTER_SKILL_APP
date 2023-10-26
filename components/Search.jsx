@@ -14,7 +14,7 @@ const Search = () => {
 
 
   return (
-    <div className="hidden gap-2  border-px  lg:flex xl:flex">
+    <div data-test="nav-link-search" className="hidden gap-2  border-px  lg:flex xl:flex">
           <input
             type="text"
             placeholder="Wpisz czego szukasz..."
@@ -26,7 +26,7 @@ const Search = () => {
           src="/assets/icons/search.svg"
           width={44}
           height={44}
-          alt="menu"
+          alt="search"
           className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
           onClick={()=> router.push('/search?q=' + input)}
         />

@@ -84,7 +84,7 @@ const Home = () => {
         
         
       </div>
-      <div className="flex w-full gap-1 justify-around  p-3 flex-wrap ">
+      <ul data-test="category-list" className="flex w-full gap-1 justify-around  p-3 flex-wrap ">
         {categories.map((el) => (
           <Tooltip
             content={
@@ -94,18 +94,19 @@ const Home = () => {
             className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
             key={shortid.generate()}
           >
-            <CategoryBtn setCat={handleClickCategory} value={el.name} />
+            <li data-test="category-list-item"><CategoryBtn setCat={handleClickCategory} value={el.name} /></li>
             
           </Tooltip>
         ))}
-      </div>
+      </ul>
 
-      <div className="flex gap-4 flex-wrap mb-10 mt-10 justify-center">
-
+      <ul className="flex gap-4 flex-wrap mb-10 mt-10 justify-center">
         {lesson.map((el) => (
-          <DialogLesson key={shortid.generate()} lesson={el} />
+          <li>
+              <DialogLesson key={shortid.generate()} lesson={el} />
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };

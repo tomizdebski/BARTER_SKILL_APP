@@ -84,6 +84,7 @@ const Nav = () => {
               <Link
                 href="/quiz/"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125 animate-pulse"
+                data-test="nav-link-quiz"
               >
                 <Image
                   src="/assets/icons/quiz1.svg"
@@ -115,6 +116,7 @@ const Nav = () => {
             <Link
               href="/basket"
               className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-110"
+              data-test="nav-link-basket"
             >
               <Image
                 src="/assets/icons/basket.svg"
@@ -136,6 +138,7 @@ const Nav = () => {
               <Link
                 href="/my-barters"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
+                data-test="nav-link-barter"
               >
                 <Image
                   src="/assets/icons/barter_3.svg"
@@ -156,6 +159,7 @@ const Nav = () => {
               <Link
                 href="/user-skills"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
+                data-test="nav-link-skill"
               >
                 <Image
                   src="/assets/icons/skill.svg"
@@ -176,6 +180,7 @@ const Nav = () => {
               <Link
                 href="/create-lesson"
                 className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
+                data-test="nav-link-create-lesson"
               >
                 <Image
                   src="/assets/icons/add.svg"
