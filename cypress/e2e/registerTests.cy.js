@@ -8,7 +8,7 @@ describe("Register test", () => {
 
     cy.get('input[name="firstName"]').type("myUserFirstName"); // type in the first name
     cy.get('input[name="lastName"]').type("myUserLastName"); // type in the last name
-    cy.get('input[name="email"]').type("myusername@test.pl"); // type in the username
+    cy.get('input[name="email"]').type("cypress@test.pl"); // type in the username
     cy.get('input[name="password"]').type("mypassword"); // type in the password
    
 
@@ -36,7 +36,7 @@ describe("Register test", () => {
     cy.get('button[type="submit"]').click(); // click the submit button
     cy.get('[data-test="register-page-avatar"]').should("be.visible");
 
-    // cy.url().should("include", "/"); // assert that the URL includes '/'
+    cy.url().should("include", "/auth/login"); // assert that the URL includes '/'
 
     //   cy.viewport("macbook-15"); // set the screen resolution to macbook-15 size
 

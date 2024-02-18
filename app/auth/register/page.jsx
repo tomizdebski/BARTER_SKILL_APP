@@ -72,7 +72,7 @@ const Register = () => {
         const response = await axios.post(url, formData);
         console.log(response);
         if (response.status === 200) {
-          router.push("/");
+          router.push("/auth/login");
         }
       } catch (error) {
         console.log(error);

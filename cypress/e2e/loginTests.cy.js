@@ -1,4 +1,6 @@
 describe("Login test", () => {
+  
+  
   it("Login successfully", () => {
     cy.visit("/"); // visit home page
     cy.get('[data-test="home-login-button"]').click(); // click the login button
@@ -6,6 +8,16 @@ describe("Login test", () => {
     cy.get('input[name="email"]').type("myusername@test.pl"); // type in the username
     cy.get('input[name="password"]').type("mypassword"); // type in the password
     cy.get('button[type="submit"]').click(); // click the submit button
+
+    cy.intercept('POST', 'http://localhost:4000/api/login').as('loginRequest');
+    cy.wait('@loginRequest').should(({ request }) => {
+      expect(request.method).to.equal('POST');
+      expect(request.body).to.deep.equal({
+        email: 'myusername@test.pl',
+        password: 'mypassword',
+      });
+    });
+
     cy.url().should("include", "/"); // assert that the URL includes '/'
 
     cy.viewport("macbook-15"); // set the screen resolution to macbook-15 size
