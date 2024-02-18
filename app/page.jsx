@@ -8,6 +8,7 @@ import { Tooltip } from "@material-tailwind/react";
 import { CardInstructors } from "@components/Instructors";
 import shortid from "shortid";
 import CategoryBtn from "@components/CategoryBtn";
+import LoadingSpinner from "@components/LoadingSpinner";
 
 ///socket
 // import socketIO from "socket.io-client"
@@ -100,11 +101,13 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="flex gap-4 flex-wrap mb-10 mt-10 justify-center">
+      <div className="flex gap-6 flex-wrap mb-10 mt-10 justify-center min-h-[650px]">
 
+            {lesson.length === 0 && <LoadingSpinner />}
         {lesson.map((el) => (
           <DialogLesson key={shortid.generate()} lesson={el} />
         ))}
+
       </div>
     </section>
   );
