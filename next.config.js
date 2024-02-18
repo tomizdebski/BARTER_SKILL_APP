@@ -4,7 +4,7 @@ module.exports = {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'barter-api-db-neon.onrender.com',
+          hostname: 'barter-api-db-neon-8kp0.onrender.com',
           port: '',
           pathname: '/**',
         },
