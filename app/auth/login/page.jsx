@@ -53,7 +53,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-[900px]">
+    <div className="min-h-[900px] my-8 shadow-2xl ">
       <form
         onSubmit={handleSubmit(onSubmit)}
         id="reset"

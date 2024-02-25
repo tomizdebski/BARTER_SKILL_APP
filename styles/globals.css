@@ -155,7 +155,7 @@
 }
 
 .form_label {
-  @apply font-satoshi font-semibold text-base text-gray-700;
+  @apply font-saira font-semibold text-base text-gray-700;
 }
 
 .form_input {
@@ -201,5 +201,5 @@
 }
 
 input[type=file]::file-selector-button {
-  @apply border-none  px-5 py-1.5 rounded bg-blue-500 text-white font-bold hover:bg-blue-600;
+  @apply border border-primary-blue  px-6 py-3 rounded-full bg-primary-blue text-white font-bold hover:bg-white hover:text-primary-blue;
 }

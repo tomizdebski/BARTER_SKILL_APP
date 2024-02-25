@@ -81,12 +81,12 @@ const Register = () => {
   });
 
   return (
-    <div className="my-8 shadow-2xl ">
+    <div className="my-8 shadow-2xl rounded-xl">
       
       <form
         onSubmit={formik.handleSubmit}
         encType="multipart/form-data"
-        className="form_layout shadow-2xl rounded"
+        className="form_layout shadow-2xl rounded-xl font-saira"
       >
         
         <h1 className="head_text text-leftpb-2 text-center">
