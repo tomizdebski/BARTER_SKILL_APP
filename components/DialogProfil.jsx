@@ -15,6 +15,7 @@ import {
 } from "@material-tailwind/react";
 import { UserContext } from "./UserContext";
 import { useRouter } from "next/navigation";
+import Search from "./Search";
 
 export function DialogProfil() {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -219,7 +220,12 @@ export function DialogProfil() {
                       Przetestuj się - Quiz
                     </Typography>
                   </Link>
+                  
                 </MenuItem>
+                <MenuItem className="flex items-center gap-3">
+                  <Search />
+                </MenuItem>
+
               </ul>
             </div>
 

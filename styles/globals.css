@@ -123,7 +123,7 @@
 }
 
 .search_input {
-  @apply block w-[400px] rounded-full border-2 border-gray-600 bg-white  font-satoshi px-6 py-3 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-[400px]  rounded-full border-2 border-gray-600 bg-white  font-satoshi px-6 py-3 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {

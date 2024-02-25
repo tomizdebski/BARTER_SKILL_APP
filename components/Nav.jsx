@@ -44,7 +44,7 @@ const Nav = () => {
       <Search />
 
       {/* Menu */}
-      <div className="sm:flex md:hidden lg:hidden xl:hidden">
+      <div className="sm:flex lg:hidden ">
         <Search />
         <DialogProfil />
 
@@ -61,7 +61,7 @@ const Nav = () => {
       </div>
 
       {/* desktop navigation */}
-      <div className="md:flex hidden gap-3 ">
+      <div className="lg:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5 items-center">
           <Tooltip
             content={<p>Sprawdź się w quiz</p>}
