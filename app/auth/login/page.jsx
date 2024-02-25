@@ -53,16 +53,16 @@ const Login = () => {
   };
 
   return (
-    <div className="my-8  shadow-2xl ">
+    <div className="min-h-[900px]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         id="reset"
-        className="form_layout shadow-2xl   rounded"
+        className="form_layout shadow-2xl   rounded-xl my-4 font-saira"
       >
         
         <div className="py-1">
-          <h1 className="head_text text-left pb-10 text-center">
-            <span className="blue_gradient">Zaloguj się w BARTER</span>
+          <h1 className="head_text text-left pb-10 ">
+            <span className="blue_gradient ">Zaloguj się w BARTER</span>
           </h1>
           <label className="text-gray-600 font-medium" htmlFor="first_name">
             Email :
@@ -105,7 +105,9 @@ const Login = () => {
           Zaloguj
         </button>
       </form>
+    
     </div>
+      
   );
 };
 

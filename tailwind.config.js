@@ -21,6 +21,7 @@ module.exports = withMT({
         'primary-orange': '#FF5722',
         'primary-blue': '#00ADEF',
         'primary-gray': '#423D3D',
+        'primary-green': '#8BC43F',
       }
     },
     screens: {

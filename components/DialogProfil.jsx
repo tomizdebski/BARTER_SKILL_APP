@@ -275,7 +275,7 @@ export function DialogProfil() {
           {!userInfo && (<>
           <button
             size="sm"
-            className="outline_btn"
+            className="primary_btn"
             onClick={() => {
               router.push(`/auth/login`);
               handleOpen();

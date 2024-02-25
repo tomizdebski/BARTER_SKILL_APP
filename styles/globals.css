@@ -115,7 +115,7 @@
 }
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent font-saira;
 }
 
 .desc {
@@ -159,7 +159,7 @@
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-full mt-2 p-3 text-sm text-gray-500 outline-0;
 }
 
 /* Nav Component */
@@ -197,7 +197,7 @@
 }
 
 .submit-btn {
-  @apply border  px-5 py-1.5 rounded-xl bg-green-500 text-white font-bold hover:bg-green-600;
+  @apply border  px-6 py-3 border-primary-green rounded-full bg-primary-green text-white font-bold hover:bg-white hover:text-primary-green;
 }
 
 input[type=file]::file-selector-button {
