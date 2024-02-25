@@ -15,9 +15,12 @@ module.exports = withMT({
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         andika: ['Andika', 'sans-serif'],
+        saira: ['Saira', 'sans-serif'],
       },
       colors: {
         'primary-orange': '#FF5722',
+        'primary-blue': '#00ADEF',
+        'primary-gray': '#423D3D',
       }
     },
     screens: {

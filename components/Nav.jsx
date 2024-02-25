@@ -38,13 +38,14 @@ const Nav = () => {
     <nav className="flex-between w-full pt-3 glassmorphism">
       <Link href="/" className="flex gap-2 flex-center">
         <Image
-          src="/assets/images/logo-barter.png"
-          width={80}
-          height={80}
+          src="/assets/images/logo.svg"
+          width={200}
+          height={25}
           alt="Barter Logo"
           className="object-contain"
         />
       </Link>
+      <Search />
 
       
 
@@ -73,7 +74,7 @@ const Nav = () => {
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5 ">
         
-          <Search />
+         
 
           <Tooltip
               content={<p>Sprawdź się w quiz</p>}

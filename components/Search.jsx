@@ -10,28 +10,31 @@ const Search = () => {
   const [input, setInput] = useState("");
   const router = useRouter();
 
+return (
+  <div className="hidden gap-2  border-px  lg:flex xl:flex">
+    <div className="relative flex gap-2">
+      <input
+        type="text"
+        placeholder="Wpisz czego szukasz..."
+        className="search_input hover:scale-105"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <Image
+        src="/assets/icons/search.svg"
+        width={20}
+        height={20}
+        alt="menu"
+        className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer "
+        onClick={() => router.push("/search?q=" + input)}
+      />
+    </div>
+  </div>
+);
 
 
 
-  return (
-    <div className="hidden gap-2  border-px  lg:flex xl:flex">
-          <input
-            type="text"
-            placeholder="Wpisz czego szukasz..."
-            className="search_input hover:scale-105"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-          />
-          <Image
-          src="/assets/icons/search.svg"
-          width={44}
-          height={44}
-          alt="menu"
-          className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
-          onClick={()=> router.push('/search?q=' + input)}
-        />
-        </div>
-  )
+  
 }
 
 export default Search

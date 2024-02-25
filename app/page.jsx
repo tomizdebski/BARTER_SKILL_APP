@@ -74,12 +74,12 @@ const Home = () => {
     <section className="w-full h-[80%] flex-center flex-col bg-gray-100">
 
       <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10">
-        <span className="gray_gradient font-andika">
+        <span className="gray_gradient font-saira font-medium">
           Odkrywaj i wymieniaj się umiejętniościami
         </span>
 
         <br className="max-md:hidden" />
-        <span className="green_gradient text-center desc font-andika">
+        <span className="green_gradient text-center desc font-saira font-medium">
           Czy umiesz coś czego nie umie ktoś inny?
         </span>
         

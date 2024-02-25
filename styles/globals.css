@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @import url('https://fonts.googleapis.com/css2?family=Andika:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -81,17 +81,17 @@
 }
 
 .gray_btn {
-  @apply  rounded border w-auto border-gray-500 bg-gray-400 py-1.5 px-2 text-gray-800  focus:bg-white hover:bg-white hover:text-black  text-center text-sm font-andika flex items-center justify-center;
+  @apply  rounded-full w-auto bg-primary-blue  py-3 px-6 text-primary-gray  focus:bg-white hover:bg-white hover:border-primary-blue hover:text-black  text-center text-sm font-saira flex items-center justify-center;
 }
 
 .gray_btn_active {
-  @apply  rounded-xl border-2 w-28 border-gray-500 bg-white py-1.5 px-2 text-gray-800  focus:bg-white hover:bg-white hover:text-black  text-center text-sm font-andika flex items-center justify-center;
+  @apply  rounded-xl border-2 w-28 border-primary-blue bg-white py-1.5 px-2 text-primary-gray  focus:bg-white hover:bg-white hover:text-black  text-center text-sm font-andika flex items-center justify-center;
 }
 
 
 
 .outline_btn {
-  @apply rounded-xl border-2 border-gray-600  py-1.5 px-5 text-gray-600 transition-all hover:bg-gray-600 hover:text-white text-center text-sm font-inter font-bold flex items-center justify-center;
+  @apply rounded-full border-2 border-gray-600  py-3 px-6 text-gray-600 transition-all hover:bg-gray-600 hover:text-white text-center text-sm font-saira font-bold flex items-center justify-center;
 }
 
 .head_text {
@@ -119,7 +119,7 @@
 }
 
 .search_input {
-  @apply block w-full rounded-full border-2 border-gray-600 bg-white  font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full rounded-full border-2 border-gray-600 bg-white  font-satoshi px-6 py-3 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {
