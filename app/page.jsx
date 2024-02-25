@@ -100,8 +100,8 @@ const Home = () => {
           </Tooltip>
         ))}
       </div>
-
-      <div className="flex gap-4 flex-wrap my-2 items-center justify-center min-h-[750px]">
+        <div className="flex items-start min-h-[800px]">
+          <div className="flex gap-4 flex-wrap my-2 items-center justify-center ">
 
             {lesson.length === 0 && <LoadingSpinner />}
         {lesson.map((el) => (
@@ -109,6 +109,9 @@ const Home = () => {
         ))}
 
       </div>
+        </div>
+      
+
     </section>
   );
 };
