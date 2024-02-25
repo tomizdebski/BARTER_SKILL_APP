@@ -81,7 +81,7 @@
 }
 
 .gray_btn {
-  @apply  rounded-full w-auto bg-primary-blue  py-3 px-6 text-primary-gray  focus:bg-white hover:bg-white hover:border-primary-blue hover:text-black  text-center text-sm font-saira flex items-center justify-center;
+  @apply  rounded-full w-auto bg-primary-blue  py-3 px-6 text-white  focus:bg-white hover:bg-white hover:border-primary-blue hover:text-black  text-center text-sm font-saira font-bold flex items-center justify-center;
 }
 
 .gray_btn_active {
@@ -123,7 +123,7 @@
 }
 
 .search_input {
-  @apply block w-full rounded-full border-2 border-gray-600 bg-white  font-satoshi px-6 py-3 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-[400px] rounded-full border-2 border-gray-600 bg-white  font-satoshi px-6 py-3 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {

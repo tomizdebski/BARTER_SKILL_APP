@@ -85,7 +85,7 @@ const Home = () => {
         
         
       </div>
-      <div className="flex w-full gap-1 justify-around  p-3 flex-wrap ">
+      <div className="flex w-full gap-4 justify-center  p-3 flex-wrap ">
         {categories.map((el) => (
           <Tooltip
             content={
@@ -101,7 +101,7 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="flex gap-6 flex-wrap mb-10 mt-10 justify-center min-h-[650px]">
+      <div className="flex gap-4 flex-wrap my-2 items-center justify-center min-h-[750px]">
 
             {lesson.length === 0 && <LoadingSpinner />}
         {lesson.map((el) => (
