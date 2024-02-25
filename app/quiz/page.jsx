@@ -18,7 +18,7 @@ const Quiz = () => {
 
 
   return (
-    <div className="bg-[url('/assets/icons/quiz/doodles.svg')] bg-cover min-h-screen flex flex-col items-center justify-center ">
+    <div className="bg-[url('/assets/icons/quiz/doodles.svg')] bg-cover min-h-screen flex flex-col items-center justify-center font-saira">
       <main className="h-viewport flex flex-col w-full overflow-hidden">
         <AnimatePresence mode="wait">
           {
