@@ -71,7 +71,7 @@ const Home = () => {
 
 
   return (
-    <section className="w-full h-[80%] flex-center flex-col bg-gray-100">
+    <section className="w-full  flex-center flex-col bg-gray-100">
 
       <div className="bg-[url('/assets/icons/quiz/doodles.svg')] head_text text-center  shadow-2xl pb-10 pt-10">
         <span className="gray_gradient font-saira font-medium">
@@ -85,7 +85,7 @@ const Home = () => {
         
         
       </div>
-      <div className="flex w-full gap-4 justify-center  p-3 flex-wrap ">
+      <div className="flex w-full gap-4 justify-center  py-4 flex-wrap ">
         {categories.map((el) => (
           <Tooltip
             content={
