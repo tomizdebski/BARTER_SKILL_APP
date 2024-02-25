@@ -91,7 +91,11 @@
 
 
 .outline_btn {
-  @apply rounded-full border-2 border-gray-600  py-3 px-6 text-gray-600 transition-all hover:bg-gray-600 hover:text-white text-center text-sm font-saira font-bold flex items-center justify-center;
+  @apply rounded-full border-2 border-gray-600  py-3 px-6 text-primary-gray transition-all hover:bg-gray-600 hover:text-white text-center text-sm font-saira font-bold flex items-center justify-center;
+}
+
+.primary_btn {
+  @apply rounded-full border-2 border-gray-600  py-3 px-6 transition-all bg-gray-600 text-white hover:bg-white hover:text-gray-600 text-center text-sm font-saira font-bold flex items-center justify-center;
 }
 
 .head_text {

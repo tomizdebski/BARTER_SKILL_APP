@@ -23,12 +23,8 @@ const Nav = () => {
   const URL_API = process.env.NEXT_PUBLIC_URL_API + "/";
 
   useEffect(() => {
-    
     setUserInfo(JSON.parse(window.sessionStorage.getItem("user")));
-    
-  
-  }, [])
-  
+  }, []);
 
   const searchingHandler = () => {
     setSearching((prev) => !prev);
@@ -47,15 +43,11 @@ const Nav = () => {
       </Link>
       <Search />
 
-      
-
-      
-
       {/* Menu */}
       <div className="sm:flex md:hidden lg:hidden xl:hidden">
-      <Search />
-      <DialogProfil />
-      
+        <Search />
+        <DialogProfil />
+
         {/* <Image
           src="/assets/icons/menu.svg"
           width={37}
@@ -65,35 +57,29 @@ const Nav = () => {
           onClick={() => setToggleDropdown(!toggleDropdown)}
         /> */}
 
-        {toggleDropdown && (
-          <DialogProfil />
-        )}
+        {toggleDropdown && <DialogProfil />}
       </div>
-            
+
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
         <div className="flex gap-3 md:gap-5 ">
-        
-         
-
           <Tooltip
-              content={<p>Sprawdź się w quiz</p>}
-              placement="top-end"
-              className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+            content={<p>Sprawdź się w quiz</p>}
+            placement="top-end"
+            className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
+          >
+            <Link
+              href="/quiz/"
+              className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125 animate-pulse"
             >
-              <Link
-                href="/quiz/"
-                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125 animate-pulse"
-              >
-                <Image
-                  src="/assets/icons/quiz1.svg"
-                  width={30}
-                  height={30}
-                  alt="Basket"
-              
-                />
-              </Link>
-            </Tooltip>
+              <Image
+                src="/assets/icons/quiz1.svg"
+                width={30}
+                height={30}
+                alt="Basket"
+              />
+            </Link>
+          </Tooltip>
 
           <Tooltip
             content={
@@ -120,7 +106,6 @@ const Nav = () => {
                 width={37}
                 height={37}
                 alt="Basket"
-                
               />
             </Link>
           </Tooltip>
@@ -190,17 +175,17 @@ const Nav = () => {
           <>
             <button
               type="button"
-              onClick={() => router.push(`/auth/login`)}
-              className="outline_btn"
-            >
-              Zaloguj
-            </button>
-            <button
-              type="button"
               onClick={() => router.push(`/auth/register`)}
               className="outline_btn"
             >
               Zarejestruj
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push(`/auth/login`)}
+              className="primary_btn"
+            >
+              Zaloguj
             </button>
           </>
         ) : null}
