@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { LessonBasketContext } from "@components/LessonBasketContext"
+import { LessonBasketContext } from "@components/LessonBasketContext";
 import { UserContext } from "./UserContext";
 import Image from "next/image";
 import {
@@ -21,7 +21,7 @@ export function DialogLesson({ lesson }) {
   const handleOpen = () => setOpen((cur) => !cur);
   const handleIsFavorite = () => setIsFavorite((cur) => !cur);
 
-  const {basket, setBasket} = useContext(LessonBasketContext);
+  const { basket, setBasket } = useContext(LessonBasketContext);
   const { userInfo, setUserInfo } = useContext(UserContext);
 
   return (
@@ -35,10 +35,10 @@ export function DialogLesson({ lesson }) {
           className="h-48 w-96 object-cover object-center"
           src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.photo}
         />
-        <h4 className="text-l font-semibold text-gray-900 mt-1 text-center font-andika ">
+        <h4 className="text-l font-semibold text-gray-900 mt-1 text-center font-saira ">
           {lesson.name}{" "}
         </h4>
-        <small className="text-sm text-gray-700 text-center mb-1 font-andika">
+        <small className="text-sm text-gray-700 text-center mb-1 font-saira">
           {" "}
           {lesson.instructor.firstName}
         </small>
@@ -50,30 +50,28 @@ export function DialogLesson({ lesson }) {
               size="sm"
               variant="circular"
               alt="avatar"
-              src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.instructor.avatar}
+              src={
+                process.env.NEXT_PUBLIC_URL_API + "/" + lesson.instructor.avatar
+              }
             />
             <div className="mt-px flex flex-col">
               <Typography
                 variant="small"
                 color="blue-gray"
-                className="font-medium font-andika"
+                className="font-medium font-saira"
               >
                 {lesson.instructor.firstName + " " + lesson.instructor.lastName}
               </Typography>
               <Typography
                 variant="small"
                 color="gray"
-                className="text-xs font-normal font-andika"
+                className="text-xs font-normal font-saira"
               >
                 {lesson.category.name}
               </Typography>
             </div>
           </div>
-          <div>
-            <Typography variant="h4" color="blue-gray" className="font-medium font-andika">
-              {lesson.name}
-            </Typography>
-          </div>
+          <div></div>
           <div className="flex items-center gap-2">
             <IconButton
               variant="text"
@@ -92,24 +90,31 @@ export function DialogLesson({ lesson }) {
             </IconButton>
           </div>
         </DialogHeader>
-        <DialogBody divider={true} className="p-0">
-          <div className="flex flex-center p-5">
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="font-medium"
-            >
-              {lesson.content}
-            </Typography>
-          </div>
+        <DialogBody className="p-0">
           <img
             alt="photo"
             className="h-[20rem] w-full object-cover object-center"
             src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.photo}
           />
+          <div className="flex flex-col flex-center gap-2 pt-2">
+            <Typography
+              variant="h4"
+              color="blue-gray"
+              className="font-medium font-saira"
+            >
+              {lesson.name}
+            </Typography>
+            <Typography
+              variant="small"
+              color="blue-gray"
+              className="font-medium font-saira" 
+            >
+              {lesson.content}
+            </Typography>
+          </div>
         </DialogBody>
-        <DialogFooter className="justify-between">
-          <div className="flex items-center gap-16">
+        <DialogFooter className="justify-center">
+          <div className="flex items-center">
             <div>
               {/* <Typography variant="small" color="gray" className="font-normal">
                 Liczba lekcji
@@ -128,25 +133,24 @@ export function DialogLesson({ lesson }) {
             </div>
           </div>
 
-          {userInfo && (<Button
-            size="sm"
-            variant="outlined"
-            color="blue-gray"
-            className="flex items-center gap-3"
-            onClick={()=> {
-              setBasket(prev => [...prev, lesson]);
-              setOpen(false);
-            }}
-          >
-            
-            <Image
+          {userInfo && (
+            <button
+              
+              className="outline_btn gap-2"
+              onClick={() => {
+                setBasket((prev) => [...prev, lesson]);
+                setOpen(false);
+              }}
+            >
+              <Image
                 src="/assets/icons/add_basket.svg"
-                width={37}
-                height={37}
+                width={20}
+                height={20}
                 alt="Basket"
               />
-            Dodaj do koszyka
-          </Button>)}
+              Dodaj do koszyka
+            </button>
+          )}
           {/* <Button
             size="sm"
             variant="outlined"
