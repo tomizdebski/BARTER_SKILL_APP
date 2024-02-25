@@ -103,7 +103,7 @@ const Home = () => {
         <div className="flex items-start min-h-[800px]">
           <div className="flex gap-4 flex-wrap  justify-center  ">
 
-            {lesson.length === 0 && <LoadingSpinner />}
+            {categories.length === 0 && <LoadingSpinner />}
         {lesson.map((el) => (
           <DialogLesson key={shortid.generate()} lesson={el} />
         ))}
