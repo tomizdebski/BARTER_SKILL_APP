@@ -62,7 +62,7 @@ const Nav = () => {
 
       {/* desktop navigation */}
       <div className="md:flex hidden gap-3 ">
-        <div className="flex gap-3 md:gap-5 ">
+        <div className="flex gap-3 md:gap-5 items-center">
           <Tooltip
             content={<p>Sprawdź się w quiz</p>}
             placement="top-end"

@@ -19,10 +19,10 @@ const Search = () => {
 
 
   return (
-    <section className="w-full flex-center flex-col">
+    <section className="w-full flex-center flex-col min-h-[900px]">
 
-      <div className="head_text text-center pb-10 pt-10">
-        <span className="gray_gradient font-andika font-bold">
+      <div className="head_text pb-10 pt-10">
+        <span className="gray_gradient font-saira font-bold">
           Wynik Wyszukiwania
         </span>
       </div>

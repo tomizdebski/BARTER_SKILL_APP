@@ -5,6 +5,7 @@ import Provider from "@components/Provider";
 import { UserContextProvider } from "@components/UserContext";
 import { LessonBasketContextProvider } from "@components/LessonBasketContext";
 import { LessonsContextProvider } from "@components/LessonsContext";
+import InfoLogin from "@components/InfoLogin";
 
 export const metadata = {
   title: "Learning Barter",
@@ -24,6 +25,7 @@ const RootLayout = ({ children }) => {
           <LessonBasketContextProvider>
             <UserContextProvider>
               <Provider>
+                <InfoLogin />
                 <Nav />
                 <div className="main">
                   <div className="gradient" />

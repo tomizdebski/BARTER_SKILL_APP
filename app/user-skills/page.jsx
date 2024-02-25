@@ -26,20 +26,20 @@ const MySkills = () => {
   }, []);
 
   return (
-    <div className=" bg-gray-100 pt-20 w-full">
+    <div className=" bg-gray-100 pt-20 w-full min-h-[900px] font-saira">
       <h1 className="head_text text-center p-5 gray_gradient">
         Moje umiejętności
       </h1>
       <div className="">
-        <div className="rounded md:w-full">
-          <div className="mt-5 mb-5   pt-5 pb-5 pr-5 pl-5 rounded shadow-2xl shadow-black  opacity-80">
-            <div className="justify-between mb-6 rounded p-6  sm:flex sm:justify-start bg-gradient-to-r from-green-200 to-white shadow-2xl shadow-black">
+        <div className="rounded-2xl md:w-full">
+          <div className="mt-5 mb-5   pt-5 pb-5 pr-5 pl-5    opacity-80">
+            <div className="justify-between mb-6 rounded-lg p-6  sm:flex sm:justify-start bg-gradient-to-r from-primary-blue to-white shadow-2xl shadow-black">
               <Image
                 src={process.env.NEXT_PUBLIC_URL_API + "/" + userInfo.avatar}
                 width={80}
                 height={80}
                 alt="Avatar"
-                className="h-12 w-12 rounded-xl object-cover mr-4 shadow border border-sky-500"
+                className="h-12 w-12 rounded-full object-cover mr-4 shadow border border-primary-gray"
               />
               <div>
                 {skills.map((el) => (
