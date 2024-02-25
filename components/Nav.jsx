@@ -74,8 +74,8 @@ const Nav = () => {
             >
               <Image
                 src="/assets/icons/quiz1.svg"
-                width={30}
-                height={30}
+                width={27}
+                height={27}
                 alt="Basket"
               />
             </Link>
@@ -103,8 +103,8 @@ const Nav = () => {
             >
               <Image
                 src="/assets/icons/basket.svg"
-                width={37}
-                height={37}
+                width={30}
+                height={30}
                 alt="Basket"
               />
             </Link>
