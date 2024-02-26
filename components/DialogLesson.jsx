@@ -143,7 +143,7 @@ export function DialogLesson({ lesson }) {
               }}
             >
               <Image
-                src="/assets/icons/add_basket.svg"
+                src="/assets/icons/basket.svg"
                 width={20}
                 height={20}
                 alt="Basket"

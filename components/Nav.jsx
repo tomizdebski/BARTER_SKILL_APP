@@ -72,7 +72,7 @@ const Nav = () => {
           >
             <Link
               href="/quiz/"
-              className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125 animate-pulse"
+              className=" hover:opacity-70 rounded-lg  animate-pulse"
             >
               <Image
                 src="/assets/icons/quiz1.svg"
@@ -101,7 +101,7 @@ const Nav = () => {
           >
             <Link
               href="/basket"
-              className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-110"
+              className=" hover:opacity-70 rounded-lg "
             >
               <Image
                 src="/assets/icons/basket.svg"
@@ -109,49 +109,17 @@ const Nav = () => {
                 height={30}
                 alt="Basket"
               />
+              {basket.length > 0 && (
+                <span className="absolute top-[12px] right-[110px] bg-red-500 text-white rounded-full px-2 py-1 text-xs ">
+                  {basket.length}
+                </span>
+              )}
             </Link>
           </Tooltip>
 
-          {userInfo && (
-            <Tooltip
-              content={<p>Moje bartery</p>}
-              placement="top-end"
-              className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
-            >
-              <Link
-                href="/my-barters"
-                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
-              >
-                <Image
-                  src="/assets/icons/barter_3.svg"
-                  width={30}
-                  height={30}
-                  alt="Bartert"
-                />
-              </Link>
-            </Tooltip>
-          )}
+         
 
-          {userInfo && (
-            <Tooltip
-              content={<p>Moje umiejętności</p>}
-              placement="top-end"
-              className="text-black bg-white px-4 py-3 shadow-xl shadow-black/10"
-            >
-              <Link
-                href="/user-skills"
-                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
-              >
-                <Image
-                  src="/assets/icons/skill.svg"
-                  width={30}
-                  height={30}
-                  alt="Basket"
-                />
-              </Link>
-            </Tooltip>
-          )}
-
+          
           {userInfo && (
             <Tooltip
               content={<p>Dodaj lekcję</p>}
@@ -160,7 +128,7 @@ const Nav = () => {
             >
               <Link
                 href="/create-lesson"
-                className=" hover:bg-gray-300 hover:text-white rounded-lg hover:scale-125"
+                className="hover:opacity-70 rounded-lg "
               >
                 <Image
                   src="/assets/icons/add.svg"

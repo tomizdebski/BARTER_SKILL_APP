@@ -14,11 +14,13 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 import { UserContext } from "./UserContext";
+import { LessonBasketContext } from "@components/LessonBasketContext";
 import { useRouter } from "next/navigation";
 import Search from "./Search";
 
 export function DialogProfil() {
   const { userInfo, setUserInfo } = useContext(UserContext);
+  const { basket, setBasket } = useContext(LessonBasketContext);
   const [open, setOpen] = useState(false);
   const router = useRouter();
   console.log(userInfo);
@@ -33,7 +35,7 @@ export function DialogProfil() {
           width={60}
           height={60}
           alt="Profile"
-          className="w-10 h-10 rounded-full object-cover  shadow-xxl border border-primary-gray hover:scale-125"
+          className="w-10 h-10 rounded-full object-cover  shadow-xxl border border-primary-gray hover:opacity-70 "
           onClick={handleOpen}
         />
       ) : (
@@ -105,15 +107,18 @@ export function DialogProfil() {
               </Typography>
 
               <ul className="mt-1 -ml-2 flex flex-col gap-1">
-
-              <MenuItem className="flex items-center gap-3">
+                <MenuItem className="flex items-center gap-3">
                   <img
                     src="/assets/icons/add.svg"
                     alt="metamast"
                     className="h-6 w-6"
                   />
                   <Link href="/create-lesson" onClick={handleOpen}>
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Dodaj lekcję
                     </Typography>
                   </Link>
@@ -126,7 +131,11 @@ export function DialogProfil() {
                     className="h-6 w-6"
                   />
                   <Link href="/my-barters" onClick={handleOpen}>
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Moje bartery
                     </Typography>
                   </Link>
@@ -139,7 +148,11 @@ export function DialogProfil() {
                     className="h-6 w-6 rounded-md"
                   />
                   <Link href="/basket" onClick={handleOpen}>
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Mój koszyk
                     </Typography>
                   </Link>
@@ -152,7 +165,11 @@ export function DialogProfil() {
                     className="h-6 w-6 rounded-md"
                   />
                   <Link href="/user-skills" onClick={handleOpen}>
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Umiejętności
                     </Typography>
                   </Link>
@@ -165,7 +182,11 @@ export function DialogProfil() {
                     className="h-6 w-6 rounded-md"
                   />
                   <Link href="/quiz/" onClick={handleOpen}>
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Przetestuj się - Quiz
                     </Typography>
                   </Link>
@@ -188,7 +209,11 @@ export function DialogProfil() {
                     alt="metamast"
                     className="h-7 w-7 rounded-md border border-blue-gray-50"
                   />
-                  <Typography color="blue-gray" variant="h6" className="font-saira">
+                  <Typography
+                    color="blue-gray"
+                    variant="h6"
+                    className="font-saira"
+                  >
                     Powiadomienia
                   </Typography>
                 </MenuItem>
@@ -198,7 +223,11 @@ export function DialogProfil() {
                     alt="metamast"
                     className="h-7 w-7 rounded-md border border-blue-gray-50"
                   />
-                  <Typography color="blue-gray" variant="h6" className="font-saira">
+                  <Typography
+                    color="blue-gray"
+                    variant="h6"
+                    className="font-saira"
+                  >
                     Ustawienia
                   </Typography>
                 </MenuItem>
@@ -216,16 +245,18 @@ export function DialogProfil() {
                     className="h-6 w-6 rounded-md"
                   />
                   <Link href="/quiz/" onClick={handleOpen}>
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Przetestuj się - Quiz
                     </Typography>
                   </Link>
-                  
                 </MenuItem>
                 <MenuItem className="flex items-center gap-3">
                   <Search />
                 </MenuItem>
-
               </ul>
             </div>
 
@@ -245,7 +276,11 @@ export function DialogProfil() {
                       alt="metamast"
                       className="h-7 w-7 rounded-md border border-blue-gray-50"
                     />
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Powiadomienia
                     </Typography>
                   </MenuItem>
@@ -255,7 +290,11 @@ export function DialogProfil() {
                       alt="metamast"
                       className="h-7 w-7 rounded-md border border-blue-gray-50"
                     />
-                    <Typography color="blue-gray" variant="h6" className="font-saira">
+                    <Typography
+                      color="blue-gray"
+                      variant="h6"
+                      className="font-saira"
+                    >
                       Ustawienia
                     </Typography>
                   </MenuItem>
@@ -272,35 +311,37 @@ export function DialogProfil() {
               className="outline_btn"
               onClick={() => {
                 setUserInfo(false);
+                setBasket([]);
                 window.localStorage.clear();
               }}
             >
               Wyloguj
             </button>
           )}
-          {!userInfo && (<>
-          <button
-            size="sm"
-            className="primary_btn"
-            onClick={() => {
-              router.push(`/auth/login`);
-              handleOpen();
-            }}
-          >
-            Zaloguj
-          </button>
-          <button
-            size="sm"
-            className="outline_btn"
-            onClick={() => {
-              router.push(`/auth/register`);
-              handleOpen();
-            }}
-          >
-            Zarejestruj
-          </button>
-          </>)}
-
+          {!userInfo && (
+            <>
+              <button
+                size="sm"
+                className="outline_btn"
+                onClick={() => {
+                  router.push(`/auth/register`);
+                  handleOpen();
+                }}
+              >
+                Zarejestruj
+              </button>
+              <button
+                size="sm"
+                className="primary_btn"
+                onClick={() => {
+                  router.push(`/auth/login`);
+                  handleOpen();
+                }}
+              >
+                Zaloguj
+              </button>
+            </>
+          )}
         </DialogFooter>
       </Dialog>
     </>

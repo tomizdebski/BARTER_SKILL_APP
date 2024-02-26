@@ -29,7 +29,7 @@ const Search = () => {
           width={20}
           height={20}
           alt="menu"
-          className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer "
+          className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer hover:opacity-70"
           onClick={() => router.push("/search?q=" + input)}
         />
       </div>
