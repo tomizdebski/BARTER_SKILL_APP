@@ -25,9 +25,9 @@ const QuizTestCard = ({counter, currentQuestion, countdown, setAnswer, onGoClick
 
 
   return (
-    <div className="">
+    <div className="w:auto md:w-[600px]">
        
-          <div className=" flex items-center place-content-between pb-10">
+          <div className="w-full flex items-center place-content-between pb-10">
             <div>
               <span className="font-medium text-blue-600">{counter}</span>
               <span className="font-medium text-green-600">/10</span>
