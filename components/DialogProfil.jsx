@@ -39,10 +39,10 @@ export function DialogProfil() {
       ) : (
         <Image
           src={"/assets/icons/menu.svg"}
-          width={60}
-          height={60}
+          width={30}
+          height={30}
           alt="Profile"
-          className="w-10 h-10  object-cover mr-4  "
+          className="  object-cover mr-4  "
           onClick={handleOpen}
         />
       )}
