@@ -42,12 +42,12 @@ export function DialogProfil() {
           width={60}
           height={60}
           alt="Profile"
-          className="w-10 h-10 rounded-full object-cover mr-4  hover:scale-125"
+          className="w-10 h-10  object-cover mr-4  "
           onClick={handleOpen}
         />
       )}
 
-      <Dialog size="xs" open={open} handler={handleOpen}>
+      <Dialog size="xl" open={open} handler={handleOpen}>
         <DialogHeader className="justify-between font-saira">
           {userInfo && (
             <Image

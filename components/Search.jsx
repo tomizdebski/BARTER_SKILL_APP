@@ -14,12 +14,12 @@ const Search = () => {
   };
 
   return (
-    <div className="hidden gap-2  border-px  lg:flex xl:flex">
+    <div className="flex gap-2  border-px">
       <div className="relative flex gap-2">
         <input
           type="text"
           placeholder="Wpisz czego szukasz..."
-          className="search_input hover:scale-105"
+          className="search_input "
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown} // Dodaj obsługę zdarzenia onKeyDown

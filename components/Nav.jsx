@@ -41,11 +41,13 @@ const Nav = () => {
           className="object-contain"
         />
       </Link>
-      <Search />
+      <div className="hidden  md:flex ">
+        <Search />
+      </div>
 
       {/* Menu */}
       <div className="sm:flex lg:hidden ">
-        <Search />
+        
         <DialogProfil />
 
         {/* <Image
