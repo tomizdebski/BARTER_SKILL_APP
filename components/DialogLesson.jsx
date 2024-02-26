@@ -27,12 +27,12 @@ export function DialogLesson({ lesson }) {
   return (
     <>
       <Card
-        className="h-60 w-[370px] cursor-pointer overflow-hidden shadow-xl  border-gray-600 transition-opacity hover:opacity-90 bg-gray-400 hover:border-2"
+        className="w-full  md:w-[370px] cursor-pointer overflow-hidden shadow-xl  border-gray-600 transition-opacity hover:opacity-90 bg-gray-400 hover:border-2"
         onClick={handleOpen}
       >
         <img
           alt="photo"
-          className="h-48 w-96 object-cover object-center"
+          className="h-48 w-auto object-cover object-center"
           src={process.env.NEXT_PUBLIC_URL_API + "/" + lesson.photo}
         />
         <h4 className="text-l font-semibold text-gray-900 mt-1 text-center font-saira ">
