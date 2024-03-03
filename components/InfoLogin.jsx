@@ -11,7 +11,7 @@ const InfoLogin = () => {
     <div className="flex bg-gray-300 justify-end font-saira gap-4">
       <p>Pierwsze uruchomienie trwa 2 min bo działam na darmowym planie</p>
       <p>Test login data:</p>
-      <p>Username: testuser</p>
+      <p>Email: testuser@gmail.com</p>
       <p>Password: testpassword</p>
     </div>
   );
